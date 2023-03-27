@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ry?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&userSSL=false
+    username: root
+    password: root
+
+  # json的全局配置
+  jackson:
+    time-zone: GMT+8
+    date-format: java.text.SimpleDateFormat
+  thymeleaf:
+    check-template: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: /hn-dct-service/
+
+logging:
+  file:
+      name: D:/var/log/spring_log
+  level:
+    root: info
+
+mybatis:
+  #定义xml文件位置，不是必须的，如果需要在xml写sql请配置此选项
+  mapper-locations: classpath:mapper/*.xml
+  #实体类所在包名
+  type-aliases-package: com.ahzx.hndctservice.entity
+
+mapper:
+  #公用接口类路径
+  mappers: com.ahzx.hndctservice.mapper
+  identity: MYSQL
