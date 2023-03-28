@@ -4,16 +4,26 @@ spring:
     url: jdbc:mysql://localhost:3306/ry?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&userSSL=false
     username: root
     password: root
-
   # json的全局配置
   jackson:
     time-zone: GMT+8
     date-format: java.text.SimpleDateFormat
   thymeleaf:
     check-template: false
+  redis:
+    host: 192.168.1.168
+    port: 6379
+    database: 0
+    #password: 123456 #默认为空
+    lettuce:
+      pool:
+        max-active: 20  #最大连接数，负值表示没有限制，默认8
+        max-wait: -1    #最大阻塞等待时间，负值表示没限制，默认-1
+        max-idle: 8     #最大空闲连接，默认8
+        min-idle: 0     #最小空闲连接，默认0
 
 server:
-  port: 8080
+  port: 18080
   servlet:
     context-path: /hn-dct-service/
 
@@ -23,13 +33,36 @@ logging:
   level:
     root: info
 
-mybatis:
-  #定义xml文件位置，不是必须的，如果需要在xml写sql请配置此选项
-  mapper-locations: classpath:mapper/*.xml
-  #实体类所在包名
-  type-aliases-package: com.ahzx.hndctservice.entity
+#mybatis:
+#  #定义xml文件位置，不是必须的，如果需要在xml写sql请配置此选项
+#  mapper-locations: classpath:mapper/*.xml
+#  #实体类所在包名
+#  type-aliases-package: com.ahzx.hndctservice.entity
+#  #Log4g打印SqL语句
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-mapper:
-  #公用接口类路径
-  mappers: com.ahzx.hndctservice.mapper
-  identity: MYSQL
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  # MyBaits 别名包扫描路径 通过该属性可以给包中的类注册别名，注册后在 Mapper 对应的 XML ⽂件中可以直接使⽤类名，⽽不⽤使⽤全限定的类名（即 XML 中调⽤的时候不⽤包含包名）
+  type-aliases-package: com.ahzx.hndctservice.entity
+  configuration:
+    # Mybatis-plus 需要通过下面的方式开启控制台 SQL 日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 全局地开启或关闭配置⽂件中的所有映射器已经配置的任何缓存，默认为 true
+    cache-enabled: false
+    #关闭⾃动驼峰映射，该参数不能和mybatis-plus.config-location同时存在 默认值： true
+    map-underscore-to-camel-case: true
+  global-config: #逻辑删除的配置
+    db-config:
+      logic-delete-field: flag  #字段
+      logic-delete-value: 1     #删除时时是什么
+      logic-not-delete-value: 0 #未删除时是什么
+      id-type: assign_id
+
+# jwt 配置
+jwt:
+  header: "Authorization"     # token 返回头部
+  tokenPrefix: "Bearer "      # token 前缀
+  secret: "qwertyuiop1214156" # 私钥
+  expireTime: 43200            # token 的有效时间，单位是分钟

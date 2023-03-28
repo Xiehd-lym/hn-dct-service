@@ -1,26 +1,23 @@
 package com.ahzx.hndctservice.controller;
 
+import com.ahzx.hndctservice.common.result.R;
 import com.ahzx.hndctservice.entity.vo.BaseDataReqVo;
 import com.ahzx.hndctservice.entity.vo.ListDataReqVo;
-import com.ahzx.hndctservice.entity.vo.LoginVo;
 import com.github.pagehelper.PageHelper;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author xiehd
  * @Date 2023 03 23
  **/
+@Api(value = "相关接口")
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/api/selectDctData")
 @Slf4j
 public class DctController {
-
-    // 登录
-    @PostMapping("/login")
-    public void login(@RequestBody LoginVo loginVo){
-        // todo
-    }
 
     /**
      * *
@@ -46,12 +43,14 @@ public class DctController {
      */
     // 列表查询
     @PostMapping("/dataListByPage")
-    public void dataList(@RequestParam(defaultValue = "1") int pageNum,
-                         @RequestParam(defaultValue = "10") int pageSize,
-                         @RequestBody ListDataReqVo listDataReqVo){
+    public R dataList(@RequestParam(defaultValue = "1") int pageNum,
+                      @RequestParam(defaultValue = "10") int pageSize,
+                      @RequestBody ListDataReqVo listDataReqVo){
         // todo 分页
+        
         PageHelper.startPage(pageNum, pageSize);
 
+        return R.error();
 //        Page<CheckItem> page = checkItemDao.selectByCondition(queryString);
         // 查询结果的记录总数
 //        long total = page.getTotal();
@@ -59,10 +58,9 @@ public class DctController {
 //        return new PageResult(total, rows);
 
 //        PageInfo<LoginVo> loginVoPageInfo = new PageInfo<>();
-
     }
 
-    /*************************************************采集详情页***************************************************/
+    /**-----------------------------**采集详情页**-----------------------------**/
 
     /**
      * 基本信息 *
@@ -70,7 +68,8 @@ public class DctController {
      */
     @PostMapping("/baseData")
     public void baseData(@RequestBody BaseDataReqVo baseDataReqVo){
-
+        // todo
+        
     }
 
     /**
@@ -78,6 +77,8 @@ public class DctController {
      */
     @GetMapping("/dataDetail")
     public void dataDetail(){
+        // todo
+        
     }
 
     /**
@@ -85,6 +86,8 @@ public class DctController {
      */
     @GetMapping("/dataInsert")
     public void dataInsert(){
+        
+        // todo
     }
 
 }
