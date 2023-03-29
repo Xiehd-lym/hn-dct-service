@@ -26,15 +26,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 用户相关接口 *
+ * 用户登录相关接口 *
  * @Author xiehd
  * @Date 2023 03 27
  **/
-@Api(value = "用户相关接口")
+@Api(tags = "用户相关接口")
 @RestController
 @RequestMapping("/api/user")
 @Slf4j
-public class UserLoginApiController {
+public class UserApiController {
 
     @Autowired
     private UserLoginMapper userLoginMapper;
@@ -51,32 +51,27 @@ public class UserLoginApiController {
         String username = loginVo.getUsername();
         String password = loginVo.getPassword();
 
-        ///校验参数
-        if (StringUtil.isEmpty(username) || StringUtil.isEmpty(password)) {
-            return R.setResult(ResultCodeEnum.PARAM_ERROR);
+        // 验证账号密码是否正确
+        UserLogin userLogin = new UserLogin();
+        userLogin.setUsername(username);
+        userLogin.setPassword(password);
+        QueryWrapper<UserLogin> queryWrapper = new QueryWrapper<>();
+        queryWrapper
+                .eq("username", username)
+                .eq("password", password);
+
+        List<UserLogin> list = userLoginMapper.selectList(queryWrapper);
+        if(CollectionUtils.isNotEmpty(list)) {
+            // 登录成功,加上 token
+            String token = JwtUtil.createToken(list.get(0).getUsername());
+
+            Map<String, Object> data = new HashMap<>();
+            data.put("token", token);
+            data.put("user",list.get(0));
+            data.put("loginResult", true);
+            return R.ok().code(200).data("data", data).message("登录成功");
         }else {
-            // 验证账号密码是否正确
-            UserLogin userLogin = new UserLogin();
-            userLogin.setUsername(username);
-            userLogin.setPassword(password);
-            QueryWrapper<UserLogin> queryWrapper = new QueryWrapper<>();
-            queryWrapper
-                    .eq("username", username)
-                    .eq("password", password);
-
-            List<UserLogin> list = userLoginMapper.selectList(queryWrapper);
-            if(CollectionUtils.isNotEmpty(list)) {
-                // 登录成功,加上 token
-                String token = JwtUtil.createToken(list.get(0).getUsername());
-
-                Map<String, Object> data = new HashMap<>();
-                data.put("token", token);
-                data.put("user",list.get(0));
-                data.put("loginResult", true);
-                return R.ok().code(200).data("data", data).message("登录成功");
-            }else {
-                return R.error().data("loginResult", false).message("登录失败，请认真检查账号密码哦");
-            }
+            return R.error().data("loginResult", false).message("登录失败，请认真检查账号密码哦");
         }
     }
 

@@ -1,28 +1,26 @@
 package com.ahzx.hndctservice.controller;
 
 import com.ahzx.hndctservice.common.result.R;
-import com.ahzx.hndctservice.entity.vo.BaseDataReqVo;
 import com.ahzx.hndctservice.entity.vo.ListDataReqVo;
 import com.github.pagehelper.PageHelper;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
+ * 查询相关接口 *
  * @Author xiehd
  * @Date 2023 03 23
  **/
-@Api(value = "相关接口")
+@Api(tags = "查询相关接口")
 @RestController
-@RequestMapping("/api/selectDctData")
+@RequestMapping("/api/dtcData")
 @Slf4j
-public class DctController {
+public class DctApiController {
 
     /**
      * *
-     * @param pageNum
-     * @param pageSize
      * @param listDataReqVo
      *
      *      //当前页
@@ -42,34 +40,21 @@ public class DctController {
      *
      */
     // 列表查询
-    @PostMapping("/dataListByPage")
-    public R dataList(@RequestParam(defaultValue = "1") int pageNum,
-                      @RequestParam(defaultValue = "10") int pageSize,
-                      @RequestBody ListDataReqVo listDataReqVo){
-        // todo 分页
-        
-        PageHelper.startPage(pageNum, pageSize);
-
-        return R.error();
-//        Page<CheckItem> page = checkItemDao.selectByCondition(queryString);
-        // 查询结果的记录总数
-//        long total = page.getTotal();
-//        List<CheckItem> rows = page.getResult();
-//        return new PageResult(total, rows);
-
-//        PageInfo<LoginVo> loginVoPageInfo = new PageInfo<>();
+    @PostMapping("/getDataListByPage")
+    public R dataList(@Validated  @RequestBody ListDataReqVo listDataReqVo){
+        PageHelper.startPage(listDataReqVo.getPagenum(), listDataReqVo.getPagesize());
+        // todo 根据采集员的采集地区范围去查询所有的被采集人员基础列表信息
+        return R.ok();
     }
 
     /**-----------------------------**采集详情页**-----------------------------**/
 
     /**
      * 基本信息 *
-     * @param baseDataReqVo
      */
     @PostMapping("/baseData")
-    public void baseData(@RequestBody BaseDataReqVo baseDataReqVo){
+    public void baseData(){
         // todo
-        
     }
 
     /**

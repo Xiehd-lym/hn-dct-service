@@ -1,15 +1,15 @@
 package com.ahzx.hndctservice.mapper;
 
-import com.ahzx.hndctservice.entity.UserLogin;
+import com.ahzx.hndctservice.entity.SysDictData;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- *  用户登录 数据层 *
+ *  字典数据表 数据层 *
  * @Author xiehd
- * @Date 2023 03 29
+ * @Date 2023 03 24
  **/
 @Mapper
-public interface UserLoginMapper extends BaseMapper<UserLogin> {
+public interface SysDictDataMapper extends BaseMapper<SysDictData> {
 
 }

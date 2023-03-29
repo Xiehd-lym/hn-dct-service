@@ -30,7 +30,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 // js 静态资源
                 "/**/*.js",
                 // css 静态资源
-                "/**/*.css"
+                "/**/*.css",
+                "/swagger-resources/**",
+                "/swagger-ui.html/**"
         );
     }
 
