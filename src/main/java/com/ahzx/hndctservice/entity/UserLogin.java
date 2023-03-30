@@ -1,6 +1,6 @@
 package com.ahzx.hndctservice.entity;
 
-import com.ahzx.hndctservice.entity.vo.UserLoginVo;
+import com.ahzx.hndctservice.entity.Vo.UserLoginVo;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 

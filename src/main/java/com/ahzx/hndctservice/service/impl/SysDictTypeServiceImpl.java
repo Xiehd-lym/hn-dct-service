@@ -21,9 +21,6 @@ public class SysDictTypeServiceImpl implements ISysDictTypeService {
     @Autowired
     private SysDictTypeMapper dictTypeMapper;
 
-    @Autowired
-    private SysDictDataMapper dictDataMapper;
-
     @Override
     public List<SysDictType> selectDictTypeByTemplate(String dictType) {
         QueryWrapper<SysDictType> sysDictTypeQueryWrapper = new QueryWrapper<>();

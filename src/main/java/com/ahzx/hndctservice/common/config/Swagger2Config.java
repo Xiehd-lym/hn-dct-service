@@ -12,6 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
+ * Swagger配置类 *
  * @Author xiehd
  * @Date 2023 03 29
  **/
@@ -32,9 +33,6 @@ public class Swagger2Config {
 //                .contact(new Contact("Atguigu", "http://atguigu.com", "xg114747411@126.com"))
                 .build();
     }
-
-
-
 
 
 //    @Bean

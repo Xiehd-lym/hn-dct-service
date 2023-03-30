@@ -17,12 +17,6 @@ public class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /** 搜索值 */
-    private String searchValue;
-
-    @TableId(type = IdType.ASSIGN_UUID)
-    private Integer id;
-
     /** 创建时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT)
@@ -33,20 +27,13 @@ public class BaseEntity implements Serializable {
     @TableField(fill = FieldFill.UPDATE)
     private Date updateTime;
 
-//    @Version
-//    private Integer version;
-
-    @TableLogic
-    private Integer delFlag;
-
     /** 创建者 */
     private String createBy;
 
     /** 更新者 */
     private String updateBy;
 
-    /** 备注 */
-    private String remark;
-
+//    @Version
+//    private Integer version;
 
 }

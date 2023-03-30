@@ -33,6 +33,7 @@ public enum ResultCodeEnum {
     FETCH_ACCESSTOKEN_FAILD(false, 23003, "获取accessToken失败"),
     FETCH_USERINFO_ERROR(false, 23004, "获取用户信息失败"),
     LOGIN_ERROR(false, 23005, "登录失败"),
+    JWT_ERROR(false, 23006, "JWT登录令牌错误"),
 
     COMMENT_EMPTY(false, 24006, "评论内容必须填写"),
 

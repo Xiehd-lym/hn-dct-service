@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahzx.hndctservice.mapper.TFarmerMainMapper">
+
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerBTDto" id="ResultBTDto">
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="personName"    column="person_name"    />
+        <result property="homeNo"    column="home_no"    />
+        <result property="cardNo"    column="card_no"    />
+        <result property="age"    column="age"    />
+        <result property="phone"    column="phone"    />
+        <result property="education"    column="education"    />
+        <result property="maritalStatus"    column="marital_status"    />
+        <result property="workCount"    column="work_count"    />
+        <result property="personCount"    column="person_count"    />
+        <result property="area"    column="area"    />
+        <result property="creditScore"    column="credit_score"    />
+        <result property="creditLevel"    column="credit_level"    />
+        <result property="farmerTabName"    column="farmer_tab_name"    />
+        <result property="collectTaskNo"    column="collect_task_no"    />
+        <result property="collectTime"    column="collect_time"    />
+        <result property="collectStatus"    column="collect_status"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="evaStatus"    column="eva_status"    />
+        <result property="delFlag"    column="del_flag"    />
+
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="incomeAndExpenditure"    column="income_and_expenditure"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="houseStruct"    column="house_struct"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="plantIncome"    column="plant_income"    />
+        <result property="vehicleValue"    column="vehicle_value"    />
+        <result property="otherAssetsValue"    column="other_assets_value"    />
+        <result property="debtAmount"    column="debt_amount"    />
+        <result property="honorLevel"    column="honor_level"    />
+        <result property="creditStatus"    column="credit_status"    />
+        <result property="criminalRecord"    column="criminal_record"    />
+        <result property="honorInfo"    column="honor_info"    />
+        <result property="adag"    column="adag"    />
+        <result property="qlzf"    column="qlzf"    />
+        <result property="zjsf"    column="zjsf"    />
+        <result property="xykj"    column="xykj"    />
+        <result property="whjy"    column="whjy"    />
+        <result property="yfys"    column="yfys"    />
+        <result property="jthm"    column="jthm"    />
+        <result property="lltj"    column="lltj"    />
+        <result property="hjws"    column="hjws"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerDADto" id="ResultDADto">
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="personName"    column="person_name"    />
+        <result property="homeNo"    column="home_no"    />
+        <result property="cardNo"    column="card_no"    />
+        <result property="age"    column="age"    />
+        <result property="phone"    column="phone"    />
+        <result property="education"    column="education"    />
+        <result property="maritalStatus"    column="marital_status"    />
+        <result property="workCount"    column="work_count"    />
+        <result property="personCount"    column="person_count"    />
+        <result property="area"    column="area"    />
+        <result property="creditScore"    column="credit_score"    />
+        <result property="creditLevel"    column="credit_level"    />
+        <result property="farmerTabName"    column="farmer_tab_name"    />
+        <result property="collectTaskNo"    column="collect_task_no"    />
+        <result property="collectTime"    column="collect_time"    />
+        <result property="collectStatus"    column="collect_status"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="evaStatus"    column="eva_status"    />
+        <result property="delFlag"    column="del_flag"    />
+
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="incomeAndExpenditure"    column="income_and_expenditure"    />
+        <result property="incomeDesc"    column="income_desc"    />
+        <result property="payOutDesc"    column="pay_out_desc"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="houseStruct"    column="house_struct"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="plantIncome"    column="plant_income"    />
+        <result property="vehicleValue"    column="vehicle_value"    />
+        <result property="otherAssetsValue"    column="other_assets_value"    />
+        <result property="debtAmount"    column="debt_amount"    />
+        <result property="debtDesc"    column="debt_desc"    />
+        <result property="honorDesc"    column="honor_desc"    />
+        <result property="honorLevel"    column="honor_level"    />
+        <result property="criminalRecord"    column="criminal_record"    />
+        <result property="creditStatus"    column="credit_status"    />
+    </resultMap>
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerHKDto" id="ResultHKDto">
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="personName"    column="person_name"    />
+        <result property="homeNo"    column="home_no"    />
+        <result property="cardNo"    column="card_no"    />
+        <result property="age"    column="age"    />
+        <result property="phone"    column="phone"    />
+        <result property="education"    column="education"    />
+        <result property="maritalStatus"    column="marital_status"    />
+        <result property="workCount"    column="work_count"    />
+        <result property="personCount"    column="person_count"    />
+        <result property="area"    column="area"    />
+        <result property="creditScore"    column="credit_score"    />
+        <result property="creditLevel"    column="credit_level"    />
+        <result property="farmerTabName"    column="farmer_tab_name"    />
+        <result property="collectTaskNo"    column="collect_task_no"    />
+        <result property="collectTime"    column="collect_time"    />
+        <result property="collectStatus"    column="collect_status"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="evaStatus"    column="eva_status"    />
+        <result property="delFlag"    column="del_flag"    />
+
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="income"    column="income"    />
+        <result property="incomeDesc"    column="income_desc"    />
+        <result property="payOut"    column="pay_out"    />
+        <result property="payOutDesc"    column="pay_out_desc"    />
+        <result property="incomeAndExpenditure"    column="income_and_expenditure"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="houseStruct"    column="house_struct"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="plantType"    column="plant_type"    />
+        <result property="plantIncome"    column="plant_income"    />
+        <result property="vehicleValue"    column="vehicle_value"    />
+        <result property="otherAssetsName"    column="other_assets_name"    />
+        <result property="otherAssetsValue"    column="other_assets_value"    />
+        <result property="debtAmount"    column="debt_amount"    />
+        <result property="debtDesc"    column="debt_desc"    />
+        <result property="honorDesc"    column="honor_desc"    />
+        <result property="honorLevel"    column="honor_level"    />
+        <result property="criminalRecord"    column="criminal_record"    />
+        <result property="creditStatus"    column="credit_status"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerQZDto" id="ResultQZDto">
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="personName"    column="person_name"    />
+        <result property="homeNo"    column="home_no"    />
+        <result property="cardNo"    column="card_no"    />
+        <result property="age"    column="age"    />
+        <result property="phone"    column="phone"    />
+        <result property="education"    column="education"    />
+        <result property="maritalStatus"    column="marital_status"    />
+        <result property="workCount"    column="work_count"    />
+        <result property="personCount"    column="person_count"    />
+        <result property="area"    column="area"    />
+        <result property="creditScore"    column="credit_score"    />
+        <result property="creditLevel"    column="credit_level"    />
+        <result property="farmerTabName"    column="farmer_tab_name"    />
+        <result property="collectTaskNo"    column="collect_task_no"    />
+        <result property="collectTime"    column="collect_time"    />
+        <result property="collectStatus"    column="collect_status"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="evaStatus"    column="eva_status"    />
+        <result property="delFlag"    column="del_flag"    />
+
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="ageSelect"    column="age_select"    />
+        <result property="income"    column="income"    />
+        <result property="debtDesc"    column="debt_desc"    />
+        <result property="assetValue"    column="asset_value"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="forestArea"    column="forest_area"    />
+        <result property="insuranceInfo"    column="insurance_info"    />
+        <result property="vehicleInfo"    column="vehicle_info"    />
+        <result property="honorInfo"    column="honor_info"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerSYDto" id="ResultSYDto">
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="personName"    column="person_name"    />
+        <result property="homeNo"    column="home_no"    />
+        <result property="cardNo"    column="card_no"    />
+        <result property="age"    column="age"    />
+        <result property="phone"    column="phone"    />
+        <result property="education"    column="education"    />
+        <result property="maritalStatus"    column="marital_status"    />
+        <result property="workCount"    column="work_count"    />
+        <result property="personCount"    column="person_count"    />
+        <result property="area"    column="area"    />
+        <result property="creditScore"    column="credit_score"    />
+        <result property="creditLevel"    column="credit_level"    />
+        <result property="farmerTabName"    column="farmer_tab_name"    />
+        <result property="collectTaskNo"    column="collect_task_no"    />
+        <result property="collectTime"    column="collect_time"    />
+        <result property="collectStatus"    column="collect_status"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="evaStatus"    column="eva_status"    />
+        <result property="delFlag"    column="del_flag"    />
+
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="income"    column="income"    />
+        <result property="payOut"    column="pay_out"    />
+        <result property="netIncome"    column="net_income"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="debtAmount"    column="debt_amount"    />
+        <result property="houseCount"    column="house_count"    />
+        <result property="vehicleCount"    column="vehicle_count"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerWCDto" id="ResultWCDto">
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="personName"    column="person_name"    />
+        <result property="homeNo"    column="home_no"    />
+        <result property="cardNo"    column="card_no"    />
+        <result property="age"    column="age"    />
+        <result property="phone"    column="phone"    />
+        <result property="education"    column="education"    />
+        <result property="maritalStatus"    column="marital_status"    />
+        <result property="workCount"    column="work_count"    />
+        <result property="personCount"    column="person_count"    />
+        <result property="area"    column="area"    />
+        <result property="creditScore"    column="credit_score"    />
+        <result property="creditLevel"    column="credit_level"    />
+        <result property="farmerTabName"    column="farmer_tab_name"    />
+        <result property="collectTaskNo"    column="collect_task_no"    />
+        <result property="collectTime"    column="collect_time"    />
+        <result property="collectStatus"    column="collect_status"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="evaStatus"    column="eva_status"    />
+        <result property="delFlag"    column="del_flag"    />
+
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="incomeAndExpenditure"    column="income_and_expenditure"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="houseDate"    column="house_date"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="landIncome"    column="land_income"    />
+        <result property="vehicleValue"    column="vehicle_value"    />
+        <result property="otherAssetsValue"    column="other_assets_value"    />
+        <result property="debtDesc"    column="debt_desc"    />
+        <result property="insurance"    column="insurance"    />
+        <result property="countryInsurance"    column="country_insurance"    />
+        <result property="honorLevel"    column="honor_level"    />
+        <result property="criminalRecord"    column="criminal_record"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerWZSDto" id="ResultWZSDto">
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="personName"    column="person_name"    />
+        <result property="homeNo"    column="home_no"    />
+        <result property="cardNo"    column="card_no"    />
+        <result property="age"    column="age"    />
+        <result property="phone"    column="phone"    />
+        <result property="education"    column="education"    />
+        <result property="maritalStatus"    column="marital_status"    />
+        <result property="workCount"    column="work_count"    />
+        <result property="personCount"    column="person_count"    />
+        <result property="area"    column="area"    />
+        <result property="creditScore"    column="credit_score"    />
+        <result property="creditLevel"    column="credit_level"    />
+        <result property="farmerTabName"    column="farmer_tab_name"    />
+        <result property="collectTaskNo"    column="collect_task_no"    />
+        <result property="collectTime"    column="collect_time"    />
+        <result property="collectStatus"    column="collect_status"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="evaStatus"    column="eva_status"    />
+        <result property="delFlag"    column="del_flag"    />
+
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="income"    column="income"    />
+        <result property="incomeDesc"    column="income_desc"    />
+        <result property="payOut"    column="pay_out"    />
+        <result property="payOutDesc"    column="pay_out_desc"    />
+        <result property="incomeAndExpenditure"    column="income_and_expenditure"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="houseStruct"    column="house_struct"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="plantType"    column="plant_type"    />
+        <result property="plantIncome"    column="plant_income"    />
+        <result property="vehicleValue"    column="vehicle_value"    />
+        <result property="otherAssetsName"    column="other_assets_name"    />
+        <result property="otherAssetsValue"    column="other_assets_value"    />
+        <result property="debtAmount"    column="debt_amount"    />
+        <result property="debtDesc"    column="debt_desc"    />
+        <result property="honorDesc"    column="honor_desc"    />
+        <result property="honorLevel"    column="honor_level"    />
+        <result property="criminalRecord"    column="criminal_record"    />
+        <result property="creditStatus"    column="credit_status"    />
+        <result property="insuranceInfo"    column="insurance_info"    />
+        <result property="vehicleInfo"    column="vehicle_info"    />
+        <result property="honorInfo"    column="honor_info"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+
+
+    <select id="selectFullMsgBT" resultMap="ResultBTDto">
+        SELECT
+            *
+        FROM
+            t_farmer_main a
+                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+        WHERE
+            a.farmer_id = #{farmerId}
+    </select>
+    <select id="selectFullMsgDA" resultMap="ResultDADto">
+        SELECT
+            *
+        FROM
+            t_farmer_main a
+                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+        WHERE
+            a.farmer_id = #{farmerId}
+    </select>
+    <select id="selectFullMsgHK" resultMap="ResultHKDto">
+        SELECT
+            *
+        FROM
+            t_farmer_main a
+                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+        WHERE
+            a.farmer_id = #{farmerId}
+    </select>
+    <select id="selectFullMsgQZ" resultMap="ResultQZDto">
+        SELECT
+            *
+        FROM
+            t_farmer_main a
+                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+        WHERE
+            a.farmer_id = #{farmerId}
+    </select>
+    <select id="selectFullMsgSY" resultMap="ResultSYDto">
+        SELECT
+            *
+        FROM
+            t_farmer_main a
+                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+        WHERE
+            a.farmer_id = #{farmerId}
+    </select>
+    <select id="selectFullMsgWC" resultMap="ResultWCDto">
+        SELECT
+            *
+        FROM
+            t_farmer_main a
+                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+        WHERE
+            a.farmer_id = #{farmerId}
+    </select>
+    <select id="selectFullMsgWZS" resultMap="ResultWZSDto">
+        SELECT
+            *
+        FROM
+            t_farmer_main a
+                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+        WHERE
+            a.farmer_id = #{farmerId}
+    </select>
+
+    <insert id="insertTFarmerMain" parameterType="com.ahzx.hndctservice.entity.mainFarmerEntity.TFarmerMain" useGeneratedKeys="true" keyProperty="farmerId">
+        insert into t_farmer_main
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="personName != null">person_name,</if>
+            <if test="homeNo != null">home_no,</if>
+            <if test="cardNo != null">card_no,</if>
+            <if test="age != null">age,</if>
+            <if test="phone != null">phone,</if>
+            <if test="education != null">education,</if>
+            <if test="maritalStatus != null">marital_status,</if>
+            <if test="workCount != null">work_count,</if>
+            <if test="personCount != null">person_count,</if>
+            <if test="area != null">area,</if>
+            <if test="creditScore != null">credit_score,</if>
+            <if test="creditLevel != null">credit_level,</if>
+            <if test="farmerTabName != null">farmer_tab_name,</if>
+            <if test="collectTaskNo != null">collect_task_no,</if>
+            <if test="collectTime != null">collect_time,</if>
+            <if test="collectStatus != null">collect_status,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="updateBy != null">update_by,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="personName != null">#{personName},</if>
+            <if test="homeNo != null">#{homeNo},</if>
+            <if test="cardNo != null">#{cardNo},</if>
+            <if test="age != null">#{age},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="education != null">#{education},</if>
+            <if test="maritalStatus != null">#{maritalStatus},</if>
+            <if test="workCount != null">#{workCount},</if>
+            <if test="personCount != null">#{personCount},</if>
+            <if test="area != null">#{area},</if>
+            <if test="creditScore != null">#{creditScore},</if>
+            <if test="creditLevel != null">#{creditLevel},</if>
+            <if test="farmerTabName != null">#{farmerTabName},</if>
+            <if test="collectTaskNo != null">#{collectTaskNo},</if>
+            <if test="collectTime != null">#{collectTime},</if>
+            <if test="collectStatus != null">#{collectStatus},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+        </trim>
+    </insert>
+
+    <update id="updateTFarmerMain" parameterType="com.ahzx.hndctservice.entity.mainFarmerEntity.TFarmerMain">
+        update t_farmer_main
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="personName != null">person_name = #{personName},</if>
+            <if test="homeNo != null">home_no = #{homeNo},</if>
+            <if test="cardNo != null">card_no = #{cardNo},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="education != null">education = #{education},</if>
+            <if test="maritalStatus != null">marital_status = #{maritalStatus},</if>
+            <if test="workCount != null">work_count = #{workCount},</if>
+            <if test="personCount != null">person_count = #{personCount},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="creditScore != null">credit_score = #{creditScore},</if>
+            <if test="creditLevel != null">credit_level = #{creditLevel},</if>
+            <if test="farmerTabName != null">farmer_tab_name = #{farmerTabName},</if>
+            <if test="collectTaskNo != null">collect_task_no = #{collectTaskNo},</if>
+            <if test="collectTime != null">collect_time = #{collectTime},</if>
+            <if test="collectStatus != null">collect_status = #{collectStatus},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+        </trim>
+        where farmer_id = #{farmerId}
+    </update>
+
+</mapper>

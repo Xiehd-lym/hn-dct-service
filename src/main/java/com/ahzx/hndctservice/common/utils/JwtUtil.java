@@ -1,4 +1,4 @@
-package com.ahzx.hndctservice.common.util;
+package com.ahzx.hndctservice.common.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

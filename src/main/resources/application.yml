@@ -55,7 +55,7 @@ mybatis-plus:
     map-underscore-to-camel-case: true
   global-config: #逻辑删除的配置
     db-config:
-      logic-delete-field: flag  #字段
+      logic-delete-field: delFlag  #字段
       logic-delete-value: 1     #删除时时是什么
       logic-not-delete-value: 0 #未删除时是什么
       id-type: assign_id

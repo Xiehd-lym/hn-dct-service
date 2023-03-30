@@ -1,5 +1,7 @@
 package com.ahzx.hndctservice.common.handler;
 
+import com.ahzx.hndctservice.common.exception.JWTDecodeException;
+import com.ahzx.hndctservice.common.exception.UserLoginException;
 import com.ahzx.hndctservice.common.result.R;
 import com.ahzx.hndctservice.common.result.ResultCodeEnum;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -20,7 +22,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public R error(Exception e){
         e.printStackTrace();
-        return R.error();
+        return R.setResult(ResultCodeEnum.UNKNOWN_REASON);
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
@@ -35,6 +37,20 @@ public class GlobalExceptionHandler {
     public R error(BadSqlGrammarException e){
         e.printStackTrace();
         return R.setResult(ResultCodeEnum.BAD_SQL_GRAMMAR);
+    }
+
+    @ExceptionHandler(UserLoginException.class)
+    @ResponseBody
+    public R error(UserLoginException e){
+        e.printStackTrace();
+        return R.setResult(ResultCodeEnum.LOGIN_AUTH);
+    }
+
+    @ExceptionHandler(JWTDecodeException.class)
+    @ResponseBody
+    public R error(JWTDecodeException e){
+        e.printStackTrace();
+        return R.setResult(ResultCodeEnum.JWT_ERROR);
     }
 
 }

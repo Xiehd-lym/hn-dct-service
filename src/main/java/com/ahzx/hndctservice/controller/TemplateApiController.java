@@ -5,7 +5,7 @@ import com.ahzx.hndctservice.common.enums.NewFarmerTemplateTypeEnum;
 import com.ahzx.hndctservice.common.result.R;
 import com.ahzx.hndctservice.entity.SysDictData;
 import com.ahzx.hndctservice.entity.SysDictType;
-import com.ahzx.hndctservice.entity.vo.TemplateTypeVo;
+import com.ahzx.hndctservice.entity.Vo.TemplateTypeVo;
 import com.ahzx.hndctservice.service.ISysDictDataService;
 import com.ahzx.hndctservice.service.ISysDictTypeService;
 import io.swagger.annotations.Api;
@@ -33,10 +33,8 @@ import java.util.Map;
 @Slf4j
 public class TemplateApiController {
 
-
     @Autowired
     private ISysDictTypeService dictTypeService;
-
     @Autowired
     private ISysDictDataService dictDataService;
 

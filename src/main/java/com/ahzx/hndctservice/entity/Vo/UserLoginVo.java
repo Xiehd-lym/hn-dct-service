@@ -1,4 +1,4 @@
-package com.ahzx.hndctservice.entity.vo;
+package com.ahzx.hndctservice.entity.Vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
