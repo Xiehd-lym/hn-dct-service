@@ -1,7 +1,7 @@
 package com.ahzx.hndctservice.controller;
 
-import com.ahzx.hndctservice.common.enums.FarmerTemplateTypeEnum;
-import com.ahzx.hndctservice.common.enums.NewFarmerTemplateTypeEnum;
+import com.ahzx.hndctservice.common.enums.template.FarmerTemplateTypeEnum;
+import com.ahzx.hndctservice.common.enums.template.NewFarmerTemplateTypeEnum;
 import com.ahzx.hndctservice.common.result.R;
 import com.ahzx.hndctservice.entity.SysDictData;
 import com.ahzx.hndctservice.entity.SysDictType;

@@ -1,7 +1,7 @@
 package com.ahzx.hndctservice.controller;
 
-import com.ahzx.hndctservice.common.enums.FarmerAreaTableEnum;
-import com.ahzx.hndctservice.common.enums.NewFarmerAreaTableEnum;
+import com.ahzx.hndctservice.common.enums.table.FarmerAreaTableEnum;
+import com.ahzx.hndctservice.common.enums.table.NewFarmerAreaTableEnum;
 import com.ahzx.hndctservice.common.result.R;
 import com.ahzx.hndctservice.entity.Do.FarmerDo;
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TFarmerMain;
@@ -21,7 +21,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * 查询相关接口 *
@@ -40,7 +39,7 @@ public class DctApiController {
     private ITNewfarmerMainService newfarmerMainService;
 
     /**
-     * 基本信息 *
+     * 统计信息 *
      */
     @PostMapping("/statisticsData")
     public R statisticsData(@Validated  @RequestBody StatisticsVo statisticsVo){
@@ -65,7 +64,7 @@ public class DctApiController {
     }
 
     // 列表查询
-    @PostMapping("/getDataListByPage")
+    @PostMapping("/getDataList")
     public R dataList(@Validated  @RequestBody ListDataReqVo listDataReqVo){
         PageHelper.startPage(listDataReqVo.getPagenum(), listDataReqVo.getPagesize());
         String queryUserType = listDataReqVo.getQueryUserType();
@@ -117,23 +116,5 @@ public class DctApiController {
             return R.ok().message("查询成功").data("result",result);
         }
     }
-
-    /**
-     * 详情录入 *
-     */
-    @GetMapping("/dataInsert")
-    public void dataInsert(@RequestBody Map map){
-        // todo
-    }
-
-    /**
-     * 详情修改 *
-     */
-    @GetMapping("/dataUpdate")
-    public void dataUpdate(@RequestBody Map map){
-        // todo
-    }
-
-    // todo 采集员 我的接口
 
 }

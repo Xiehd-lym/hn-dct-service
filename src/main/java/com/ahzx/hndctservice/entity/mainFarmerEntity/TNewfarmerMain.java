@@ -1,9 +1,7 @@
 package com.ahzx.hndctservice.entity.mainFarmerEntity;
 
 import com.ahzx.hndctservice.entity.BaseEntity;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
@@ -22,6 +20,7 @@ public class TNewfarmerMain extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 主键id */
+    @TableId(type = IdType.ASSIGN_UUID)
     private Long farmerId;
 
     /** 所有者（负责人）姓名 */

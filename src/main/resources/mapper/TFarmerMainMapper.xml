@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ahzx.hndctservice.mapper.TFarmerMainMapper">
 
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerBTDto" id="ResultBTDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerBt" id="ResultBTDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="homeNo"    column="home_no"    />
@@ -54,7 +54,7 @@
         <result property="hjws"    column="hjws"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerDADto" id="ResultDADto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerDa" id="ResultDADto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="homeNo"    column="home_no"    />
@@ -99,7 +99,7 @@
         <result property="criminalRecord"    column="criminal_record"    />
         <result property="creditStatus"    column="credit_status"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerHKDto" id="ResultHKDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerHk" id="ResultHKDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="homeNo"    column="home_no"    />
@@ -149,7 +149,7 @@
         <result property="creditStatus"    column="credit_status"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerQZDto" id="ResultQZDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerQz" id="ResultQZDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="homeNo"    column="home_no"    />
@@ -190,7 +190,7 @@
         <result property="honorInfo"    column="honor_info"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerSYDto" id="ResultSYDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerSy" id="ResultSYDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="homeNo"    column="home_no"    />
@@ -229,7 +229,7 @@
         <result property="vehicleCount"    column="vehicle_count"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerWCDto" id="ResultWCDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerWc" id="ResultWCDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="homeNo"    column="home_no"    />
@@ -272,7 +272,7 @@
         <result property="criminalRecord"    column="criminal_record"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerWZSDto" id="ResultWZSDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerWzs" id="ResultWZSDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="homeNo"    column="home_no"    />
@@ -332,7 +332,7 @@
             *
         FROM
             t_farmer_main a
-                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+                LEFT JOIN ${tableName} b ON a.farmer_id = b.farmer_id
         WHERE
             a.farmer_id = #{farmerId}
     </select>
@@ -341,7 +341,7 @@
             *
         FROM
             t_farmer_main a
-                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+                LEFT JOIN ${tableName} b ON a.farmer_id = b.farmer_id
         WHERE
             a.farmer_id = #{farmerId}
     </select>
@@ -350,7 +350,7 @@
             *
         FROM
             t_farmer_main a
-                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+                LEFT JOIN ${tableName} b ON a.farmer_id = b.farmer_id
         WHERE
             a.farmer_id = #{farmerId}
     </select>
@@ -359,7 +359,7 @@
             *
         FROM
             t_farmer_main a
-                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+                LEFT JOIN ${tableName} b ON a.farmer_id = b.farmer_id
         WHERE
             a.farmer_id = #{farmerId}
     </select>
@@ -368,7 +368,7 @@
             *
         FROM
             t_farmer_main a
-                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+                LEFT JOIN ${tableName} b ON a.farmer_id = b.farmer_id
         WHERE
             a.farmer_id = #{farmerId}
     </select>
@@ -377,7 +377,7 @@
             *
         FROM
             t_farmer_main a
-                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+                LEFT JOIN ${tableName} b ON a.farmer_id = b.farmer_id
         WHERE
             a.farmer_id = #{farmerId}
     </select>
@@ -386,7 +386,7 @@
             *
         FROM
             t_farmer_main a
-                LEFT JOIN t_farmer_bt b ON a.farmer_id = b.farmer_id
+                LEFT JOIN ${tableName} b ON a.farmer_id = b.farmer_id
         WHERE
             a.farmer_id = #{farmerId}
     </select>

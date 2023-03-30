@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahzx.hndctservice.generator.newFarmer.mapper.TNewfarmerLdMapper">
+    
+    <resultMap type="TNewfarmerLd" id="TNewfarmerLdResult">
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="objName"    column="obj_name"    />
+        <result property="objCode"    column="obj_code"    />
+        <result property="registeredCapital"    column="registered_capital"    />
+        <result property="objAddr"    column="obj_addr"    />
+        <result property="objCreateDate"    column="obj_create_date"    />
+        <result property="income"    column="income"    />
+        <result property="incomeDesc"    column="income_desc"    />
+        <result property="payOut"    column="pay_out"    />
+        <result property="payOutDesc"    column="pay_out_desc"    />
+        <result property="incomeAndExpenditure"    column="income_and_expenditure"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="houseStruct"    column="house_struct"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="plantType"    column="plant_type"    />
+        <result property="plantIncome"    column="plant_income"    />
+        <result property="vehicleValue"    column="vehicle_value"    />
+        <result property="otherAssetsName"    column="other_assets_name"    />
+        <result property="otherAssetsValue"    column="other_assets_value"    />
+        <result property="debtAmount"    column="debt_amount"    />
+        <result property="debtDesc"    column="debt_desc"    />
+        <result property="honorDesc"    column="honor_desc"    />
+        <result property="honorLevel"    column="honor_level"    />
+        <result property="criminalRecord"    column="criminal_record"    />
+        <result property="creditStatus"    column="credit_status"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+
+    <sql id="selectTNewfarmerLdVo">
+        select id, farmer_id, area, farmer_type, obj_name, obj_code, registered_capital, obj_addr, obj_create_date, income, income_desc, pay_out, pay_out_desc, income_and_expenditure, house_area, house_struct, land_area, plant_type, plant_income, vehicle_value, other_assets_name, other_assets_value, debt_amount, debt_desc, honor_desc, honor_level, criminal_record, credit_status, villages_gov from t_newfarmer_ld
+    </sql>
+
+    <select id="selectTNewfarmerLdList" parameterType="TNewfarmerLd" resultMap="TNewfarmerLdResult">
+        <include refid="selectTNewfarmerLdVo"/>
+        <where>  
+            <if test="farmerId != null "> and farmer_id = #{farmerId}</if>
+            <if test="area != null  and area != ''"> and area = #{area}</if>
+            <if test="farmerType != null  and farmerType != ''"> and farmer_type = #{farmerType}</if>
+            <if test="objName != null  and objName != ''"> and obj_name like concat('%', #{objName}, '%')</if>
+            <if test="objCode != null  and objCode != ''"> and obj_code = #{objCode}</if>
+            <if test="registeredCapital != null  and registeredCapital != ''"> and registered_capital = #{registeredCapital}</if>
+            <if test="objAddr != null  and objAddr != ''"> and obj_addr = #{objAddr}</if>
+            <if test="objCreateDate != null  and objCreateDate != ''"> and obj_create_date = #{objCreateDate}</if>
+            <if test="income != null  and income != ''"> and income = #{income}</if>
+            <if test="incomeDesc != null  and incomeDesc != ''"> and income_desc = #{incomeDesc}</if>
+            <if test="payOut != null  and payOut != ''"> and pay_out = #{payOut}</if>
+            <if test="payOutDesc != null  and payOutDesc != ''"> and pay_out_desc = #{payOutDesc}</if>
+            <if test="incomeAndExpenditure != null  and incomeAndExpenditure != ''"> and income_and_expenditure = #{incomeAndExpenditure}</if>
+            <if test="houseArea != null  and houseArea != ''"> and house_area = #{houseArea}</if>
+            <if test="houseStruct != null  and houseStruct != ''"> and house_struct = #{houseStruct}</if>
+            <if test="landArea != null  and landArea != ''"> and land_area = #{landArea}</if>
+            <if test="plantType != null  and plantType != ''"> and plant_type = #{plantType}</if>
+            <if test="plantIncome != null  and plantIncome != ''"> and plant_income = #{plantIncome}</if>
+            <if test="vehicleValue != null  and vehicleValue != ''"> and vehicle_value = #{vehicleValue}</if>
+            <if test="otherAssetsName != null  and otherAssetsName != ''"> and other_assets_name like concat('%', #{otherAssetsName}, '%')</if>
+            <if test="otherAssetsValue != null  and otherAssetsValue != ''"> and other_assets_value = #{otherAssetsValue}</if>
+            <if test="debtAmount != null  and debtAmount != ''"> and debt_amount = #{debtAmount}</if>
+            <if test="debtDesc != null  and debtDesc != ''"> and debt_desc = #{debtDesc}</if>
+            <if test="honorDesc != null  and honorDesc != ''"> and honor_desc = #{honorDesc}</if>
+            <if test="honorLevel != null  and honorLevel != ''"> and honor_level = #{honorLevel}</if>
+            <if test="criminalRecord != null  and criminalRecord != ''"> and criminal_record = #{criminalRecord}</if>
+            <if test="creditStatus != null  and creditStatus != ''"> and credit_status = #{creditStatus}</if>
+            <if test="villagesGov != null  and villagesGov != ''"> and villages_gov = #{villagesGov}</if>
+        </where>
+    </select>
+    
+    <select id="selectTNewfarmerLdById" parameterType="Long" resultMap="TNewfarmerLdResult">
+        <include refid="selectTNewfarmerLdVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTNewfarmerLd" parameterType="TNewfarmerLd" useGeneratedKeys="true" keyProperty="id">
+        insert into t_newfarmer_ld
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="farmerId != null">farmer_id,</if>
+            <if test="area != null">area,</if>
+            <if test="farmerType != null">farmer_type,</if>
+            <if test="objName != null">obj_name,</if>
+            <if test="objCode != null">obj_code,</if>
+            <if test="registeredCapital != null">registered_capital,</if>
+            <if test="objAddr != null">obj_addr,</if>
+            <if test="objCreateDate != null">obj_create_date,</if>
+            <if test="income != null">income,</if>
+            <if test="incomeDesc != null">income_desc,</if>
+            <if test="payOut != null">pay_out,</if>
+            <if test="payOutDesc != null">pay_out_desc,</if>
+            <if test="incomeAndExpenditure != null">income_and_expenditure,</if>
+            <if test="houseArea != null">house_area,</if>
+            <if test="houseStruct != null">house_struct,</if>
+            <if test="landArea != null">land_area,</if>
+            <if test="plantType != null">plant_type,</if>
+            <if test="plantIncome != null">plant_income,</if>
+            <if test="vehicleValue != null">vehicle_value,</if>
+            <if test="otherAssetsName != null">other_assets_name,</if>
+            <if test="otherAssetsValue != null">other_assets_value,</if>
+            <if test="debtAmount != null">debt_amount,</if>
+            <if test="debtDesc != null">debt_desc,</if>
+            <if test="honorDesc != null">honor_desc,</if>
+            <if test="honorLevel != null">honor_level,</if>
+            <if test="criminalRecord != null">criminal_record,</if>
+            <if test="creditStatus != null">credit_status,</if>
+            <if test="villagesGov != null">villages_gov,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="farmerId != null">#{farmerId},</if>
+            <if test="area != null">#{area},</if>
+            <if test="farmerType != null">#{farmerType},</if>
+            <if test="objName != null">#{objName},</if>
+            <if test="objCode != null">#{objCode},</if>
+            <if test="registeredCapital != null">#{registeredCapital},</if>
+            <if test="objAddr != null">#{objAddr},</if>
+            <if test="objCreateDate != null">#{objCreateDate},</if>
+            <if test="income != null">#{income},</if>
+            <if test="incomeDesc != null">#{incomeDesc},</if>
+            <if test="payOut != null">#{payOut},</if>
+            <if test="payOutDesc != null">#{payOutDesc},</if>
+            <if test="incomeAndExpenditure != null">#{incomeAndExpenditure},</if>
+            <if test="houseArea != null">#{houseArea},</if>
+            <if test="houseStruct != null">#{houseStruct},</if>
+            <if test="landArea != null">#{landArea},</if>
+            <if test="plantType != null">#{plantType},</if>
+            <if test="plantIncome != null">#{plantIncome},</if>
+            <if test="vehicleValue != null">#{vehicleValue},</if>
+            <if test="otherAssetsName != null">#{otherAssetsName},</if>
+            <if test="otherAssetsValue != null">#{otherAssetsValue},</if>
+            <if test="debtAmount != null">#{debtAmount},</if>
+            <if test="debtDesc != null">#{debtDesc},</if>
+            <if test="honorDesc != null">#{honorDesc},</if>
+            <if test="honorLevel != null">#{honorLevel},</if>
+            <if test="criminalRecord != null">#{criminalRecord},</if>
+            <if test="creditStatus != null">#{creditStatus},</if>
+            <if test="villagesGov != null">#{villagesGov},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTNewfarmerLd" parameterType="TNewfarmerLd">
+        update t_newfarmer_ld
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="farmerId != null">farmer_id = #{farmerId},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="farmerType != null">farmer_type = #{farmerType},</if>
+            <if test="objName != null">obj_name = #{objName},</if>
+            <if test="objCode != null">obj_code = #{objCode},</if>
+            <if test="registeredCapital != null">registered_capital = #{registeredCapital},</if>
+            <if test="objAddr != null">obj_addr = #{objAddr},</if>
+            <if test="objCreateDate != null">obj_create_date = #{objCreateDate},</if>
+            <if test="income != null">income = #{income},</if>
+            <if test="incomeDesc != null">income_desc = #{incomeDesc},</if>
+            <if test="payOut != null">pay_out = #{payOut},</if>
+            <if test="payOutDesc != null">pay_out_desc = #{payOutDesc},</if>
+            <if test="incomeAndExpenditure != null">income_and_expenditure = #{incomeAndExpenditure},</if>
+            <if test="houseArea != null">house_area = #{houseArea},</if>
+            <if test="houseStruct != null">house_struct = #{houseStruct},</if>
+            <if test="landArea != null">land_area = #{landArea},</if>
+            <if test="plantType != null">plant_type = #{plantType},</if>
+            <if test="plantIncome != null">plant_income = #{plantIncome},</if>
+            <if test="vehicleValue != null">vehicle_value = #{vehicleValue},</if>
+            <if test="otherAssetsName != null">other_assets_name = #{otherAssetsName},</if>
+            <if test="otherAssetsValue != null">other_assets_value = #{otherAssetsValue},</if>
+            <if test="debtAmount != null">debt_amount = #{debtAmount},</if>
+            <if test="debtDesc != null">debt_desc = #{debtDesc},</if>
+            <if test="honorDesc != null">honor_desc = #{honorDesc},</if>
+            <if test="honorLevel != null">honor_level = #{honorLevel},</if>
+            <if test="criminalRecord != null">criminal_record = #{criminalRecord},</if>
+            <if test="creditStatus != null">credit_status = #{creditStatus},</if>
+            <if test="villagesGov != null">villages_gov = #{villagesGov},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTNewfarmerLdById" parameterType="Long">
+        delete from t_newfarmer_ld where id = #{id}
+    </delete>
+
+    <delete id="deleteTNewfarmerLdByIds" parameterType="String">
+        delete from t_newfarmer_ld where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

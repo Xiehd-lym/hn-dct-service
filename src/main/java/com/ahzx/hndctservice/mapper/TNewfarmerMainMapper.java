@@ -6,8 +6,6 @@ import com.ahzx.hndctservice.entity.mainFarmerEntity.TNewfarmerMain;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.Map;
-
 /**
  * 新型农业主体信息主Mapper接口
  * 
@@ -40,19 +38,19 @@ public interface TNewfarmerMainMapper extends BaseMapper<TNewfarmerMain>
      * @param farmerDo 新型农业主体
      * @return 结果
      */
-    TNewfarmerHKDto selectFullMsgHK(FarmerDo farmerDo);
+    TNewfarmerHk selectFullMsgHK(FarmerDo farmerDo);
 
-    TNewfarmerBTDto selectFullMsgBT(FarmerDo farmerDo);
+    TNewfarmerBt selectFullMsgBT(FarmerDo farmerDo);
 
-    TNewfarmerDADto selectFullMsgDA(FarmerDo farmerDo);
+    TNewfarmerDa selectFullMsgDA(FarmerDo farmerDo);
 
-    TNewfarmerLDDto selectFullMsgLD(FarmerDo farmerDo);
+    TNewfarmerLd selectFullMsgLD(FarmerDo farmerDo);
 
-    TNewfarmerQZDto selectFullMsgQZ(FarmerDo farmerDo);
+    TNewfarmerQz selectFullMsgQZ(FarmerDo farmerDo);
 
-    TNewfarmerSYDto selectFullMsgSY(FarmerDo farmerDo);
+    TNewfarmerSy selectFullMsgSY(FarmerDo farmerDo);
 
-    TNewfarmerWCDto selectFullMsgWC(FarmerDo farmerDo);
+    TNewfarmerWc selectFullMsgWC(FarmerDo farmerDo);
 
-    TNewfarmerWZSDto selectFullMsgWZS(FarmerDo farmerDo);
+    TNewfarmerWzs selectFullMsgWZS(FarmerDo farmerDo);
 }

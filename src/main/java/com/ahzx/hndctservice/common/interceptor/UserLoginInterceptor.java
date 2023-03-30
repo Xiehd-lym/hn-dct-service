@@ -2,7 +2,7 @@ package com.ahzx.hndctservice.common.interceptor;
 
 import com.ahzx.hndctservice.common.exception.JWTDecodeException;
 import com.ahzx.hndctservice.common.exception.UserLoginException;
-import com.ahzx.hndctservice.common.utils.JwtUtil;
+import com.ahzx.hndctservice.common.utils.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -36,15 +36,15 @@ public class UserLoginInterceptor implements HandlerInterceptor {
             throw new UserLoginException();
         }
         // 验证 token, JwtUtil 是自己定义的类，里面有个方法验证 token
-        String sub = JwtUtil.validateToken(token);
+        String sub = JwtUtils.validateToken(token);
         if (StringUtils.isBlank(sub)) {
             throw new JWTDecodeException();
         }
         // 更新 token 有效时间
-        if (JwtUtil.isNeedUpdate(token)) {
+        if (JwtUtils.isNeedUpdate(token)) {
             // 过期就创建新的 token 给前端
-            String newToken = JwtUtil.createToken(sub);
-            response.setHeader(JwtUtil.USER_LOGIN_TOKEN, newToken);
+            String newToken = JwtUtils.createToken(sub);
+            response.setHeader(JwtUtils.USER_LOGIN_TOKEN, newToken);
         }
         return true;
     }

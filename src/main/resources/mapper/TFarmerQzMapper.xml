@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahzx.hndctservice.generator.farmer.mapper.TFarmerQzMapper">
+    
+    <resultMap type="TFarmerQz" id="TFarmerQzResult">
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="ageSelect"    column="age_select"    />
+        <result property="income"    column="income"    />
+        <result property="debtDesc"    column="debt_desc"    />
+        <result property="assetValue"    column="asset_value"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="forestArea"    column="forest_area"    />
+        <result property="insuranceInfo"    column="insurance_info"    />
+        <result property="vehicleInfo"    column="vehicle_info"    />
+        <result property="honorInfo"    column="honor_info"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+
+    <sql id="selectTFarmerQzVo">
+        select id, farmer_id, area, farmer_type, age_select, income, debt_desc, asset_value, land_area, house_area, forest_area, insurance_info, vehicle_info, honor_info, villages_gov from t_farmer_qz
+    </sql>
+
+    <select id="selectTFarmerQzList" parameterType="TFarmerQz" resultMap="TFarmerQzResult">
+        <include refid="selectTFarmerQzVo"/>
+        <where>  
+            <if test="farmerId != null "> and farmer_id = #{farmerId}</if>
+            <if test="area != null  and area != ''"> and area = #{area}</if>
+            <if test="farmerType != null  and farmerType != ''"> and farmer_type = #{farmerType}</if>
+            <if test="ageSelect != null  and ageSelect != ''"> and age_select = #{ageSelect}</if>
+            <if test="income != null  and income != ''"> and income = #{income}</if>
+            <if test="debtDesc != null  and debtDesc != ''"> and debt_desc = #{debtDesc}</if>
+            <if test="assetValue != null  and assetValue != ''"> and asset_value = #{assetValue}</if>
+            <if test="landArea != null  and landArea != ''"> and land_area = #{landArea}</if>
+            <if test="houseArea != null  and houseArea != ''"> and house_area = #{houseArea}</if>
+            <if test="forestArea != null  and forestArea != ''"> and forest_area = #{forestArea}</if>
+            <if test="insuranceInfo != null  and insuranceInfo != ''"> and insurance_info = #{insuranceInfo}</if>
+            <if test="vehicleInfo != null  and vehicleInfo != ''"> and vehicle_info = #{vehicleInfo}</if>
+            <if test="honorInfo != null  and honorInfo != ''"> and honor_info = #{honorInfo}</if>
+            <if test="villagesGov != null  and villagesGov != ''"> and villages_gov = #{villagesGov}</if>
+        </where>
+    </select>
+    
+    <select id="selectTFarmerQzById" parameterType="Long" resultMap="TFarmerQzResult">
+        <include refid="selectTFarmerQzVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTFarmerQz" parameterType="TFarmerQz">
+        insert into t_farmer_qz
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="farmerId != null">farmer_id,</if>
+            <if test="area != null">area,</if>
+            <if test="farmerType != null">farmer_type,</if>
+            <if test="ageSelect != null">age_select,</if>
+            <if test="income != null">income,</if>
+            <if test="debtDesc != null">debt_desc,</if>
+            <if test="assetValue != null">asset_value,</if>
+            <if test="landArea != null">land_area,</if>
+            <if test="houseArea != null">house_area,</if>
+            <if test="forestArea != null">forest_area,</if>
+            <if test="insuranceInfo != null">insurance_info,</if>
+            <if test="vehicleInfo != null">vehicle_info,</if>
+            <if test="honorInfo != null">honor_info,</if>
+            <if test="villagesGov != null">villages_gov,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="farmerId != null">#{farmerId},</if>
+            <if test="area != null">#{area},</if>
+            <if test="farmerType != null">#{farmerType},</if>
+            <if test="ageSelect != null">#{ageSelect},</if>
+            <if test="income != null">#{income},</if>
+            <if test="debtDesc != null">#{debtDesc},</if>
+            <if test="assetValue != null">#{assetValue},</if>
+            <if test="landArea != null">#{landArea},</if>
+            <if test="houseArea != null">#{houseArea},</if>
+            <if test="forestArea != null">#{forestArea},</if>
+            <if test="insuranceInfo != null">#{insuranceInfo},</if>
+            <if test="vehicleInfo != null">#{vehicleInfo},</if>
+            <if test="honorInfo != null">#{honorInfo},</if>
+            <if test="villagesGov != null">#{villagesGov},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTFarmerQz" parameterType="TFarmerQz">
+        update t_farmer_qz
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="farmerId != null">farmer_id = #{farmerId},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="farmerType != null">farmer_type = #{farmerType},</if>
+            <if test="ageSelect != null">age_select = #{ageSelect},</if>
+            <if test="income != null">income = #{income},</if>
+            <if test="debtDesc != null">debt_desc = #{debtDesc},</if>
+            <if test="assetValue != null">asset_value = #{assetValue},</if>
+            <if test="landArea != null">land_area = #{landArea},</if>
+            <if test="houseArea != null">house_area = #{houseArea},</if>
+            <if test="forestArea != null">forest_area = #{forestArea},</if>
+            <if test="insuranceInfo != null">insurance_info = #{insuranceInfo},</if>
+            <if test="vehicleInfo != null">vehicle_info = #{vehicleInfo},</if>
+            <if test="honorInfo != null">honor_info = #{honorInfo},</if>
+            <if test="villagesGov != null">villages_gov = #{villagesGov},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTFarmerQzById" parameterType="Long">
+        delete from t_farmer_qz where id = #{id}
+    </delete>
+
+    <delete id="deleteTFarmerQzByIds" parameterType="String">
+        delete from t_farmer_qz where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

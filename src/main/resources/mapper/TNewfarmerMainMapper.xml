@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ahzx.hndctservice.mapper.TNewfarmerMainMapper">
 
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerHKDto" id="ResultHKDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerHk" id="ResultHKDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="cardNo"    column="card_no"    />
@@ -52,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="creditStatus"    column="credit_status"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerBTDto" id="ResultBTDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerBt" id="ResultBTDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="cardNo"    column="card_no"    />
@@ -100,7 +100,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="creditStatus"    column="credit_status"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerDADto" id="ResultDADto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerDa" id="ResultDADto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="cardNo"    column="card_no"    />
@@ -144,7 +144,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="creditStatus"    column="credit_status"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerLDDto" id="ResultLDDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerLd" id="ResultLDDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="cardNo"    column="card_no"    />
@@ -197,7 +197,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="creditStatus"    column="credit_status"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerQZDto" id="ResultQZDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerQz" id="ResultQZDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="cardNo"    column="card_no"    />
@@ -239,7 +239,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="honorLevel"    column="honor_level"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerSYDto" id="ResultSYDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerSy" id="ResultSYDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="cardNo"    column="card_no"    />
@@ -289,7 +289,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="disasterResponse"    column="disaster_response"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerWCDto" id="ResultWCDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerWc" id="ResultWCDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="cardNo"    column="card_no"    />
@@ -328,7 +328,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="criminalRecord"    column="criminal_record"    />
         <result property="villagesGov"    column="villages_gov"    />
     </resultMap>
-    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerWZSDto" id="ResultWZSDto">
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerWzs" id="ResultWZSDto">
         <result property="farmerId"    column="farmer_id"    />
         <result property="personName"    column="person_name"    />
         <result property="cardNo"    column="card_no"    />

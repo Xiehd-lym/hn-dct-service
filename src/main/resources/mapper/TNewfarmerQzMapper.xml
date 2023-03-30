@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahzx.hndctservice.generator.newFarmer.mapper.TNewfarmerQzMapper">
+    
+    <resultMap type="TNewfarmerQz" id="TNewfarmerQzResult">
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="objName"    column="obj_name"    />
+        <result property="industry"    column="industry"    />
+        <result property="ageSelect"    column="age_select"    />
+        <result property="incomeAndExpenditure"    column="income_and_expenditure"    />
+        <result property="incomeDesc"    column="income_desc"    />
+        <result property="payOutDesc"    column="pay_out_desc"    />
+        <result property="assetsDebtsStructure"    column="assets_debts_structure"    />
+        <result property="creditStatus"    column="credit_status"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="plantIncome"    column="plant_income"    />
+        <result property="vehicleValue"    column="vehicle_value"    />
+        <result property="honorLevel"    column="honor_level"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+
+    <sql id="selectTNewfarmerQzVo">
+        select id, farmer_id, area, farmer_type, obj_name, industry, age_select, income_and_expenditure, income_desc, pay_out_desc, assets_debts_structure, credit_status, house_area, land_area, plant_income, vehicle_value, honor_level, villages_gov from t_newfarmer_qz
+    </sql>
+
+    <select id="selectTNewfarmerQzList" parameterType="TNewfarmerQz" resultMap="TNewfarmerQzResult">
+        <include refid="selectTNewfarmerQzVo"/>
+        <where>  
+            <if test="farmerId != null "> and farmer_id = #{farmerId}</if>
+            <if test="area != null  and area != ''"> and area = #{area}</if>
+            <if test="farmerType != null  and farmerType != ''"> and farmer_type = #{farmerType}</if>
+            <if test="objName != null  and objName != ''"> and obj_name like concat('%', #{objName}, '%')</if>
+            <if test="industry != null  and industry != ''"> and industry = #{industry}</if>
+            <if test="ageSelect != null  and ageSelect != ''"> and age_select = #{ageSelect}</if>
+            <if test="incomeAndExpenditure != null  and incomeAndExpenditure != ''"> and income_and_expenditure = #{incomeAndExpenditure}</if>
+            <if test="incomeDesc != null  and incomeDesc != ''"> and income_desc = #{incomeDesc}</if>
+            <if test="payOutDesc != null  and payOutDesc != ''"> and pay_out_desc = #{payOutDesc}</if>
+            <if test="assetsDebtsStructure != null  and assetsDebtsStructure != ''"> and assets_debts_structure = #{assetsDebtsStructure}</if>
+            <if test="creditStatus != null  and creditStatus != ''"> and credit_status = #{creditStatus}</if>
+            <if test="houseArea != null  and houseArea != ''"> and house_area = #{houseArea}</if>
+            <if test="landArea != null  and landArea != ''"> and land_area = #{landArea}</if>
+            <if test="plantIncome != null  and plantIncome != ''"> and plant_income = #{plantIncome}</if>
+            <if test="vehicleValue != null  and vehicleValue != ''"> and vehicle_value = #{vehicleValue}</if>
+            <if test="honorLevel != null  and honorLevel != ''"> and honor_level = #{honorLevel}</if>
+            <if test="villagesGov != null  and villagesGov != ''"> and villages_gov = #{villagesGov}</if>
+        </where>
+    </select>
+    
+    <select id="selectTNewfarmerQzById" parameterType="Long" resultMap="TNewfarmerQzResult">
+        <include refid="selectTNewfarmerQzVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTNewfarmerQz" parameterType="TNewfarmerQz" useGeneratedKeys="true" keyProperty="id">
+        insert into t_newfarmer_qz
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="farmerId != null">farmer_id,</if>
+            <if test="area != null">area,</if>
+            <if test="farmerType != null">farmer_type,</if>
+            <if test="objName != null">obj_name,</if>
+            <if test="industry != null">industry,</if>
+            <if test="ageSelect != null">age_select,</if>
+            <if test="incomeAndExpenditure != null">income_and_expenditure,</if>
+            <if test="incomeDesc != null">income_desc,</if>
+            <if test="payOutDesc != null">pay_out_desc,</if>
+            <if test="assetsDebtsStructure != null">assets_debts_structure,</if>
+            <if test="creditStatus != null">credit_status,</if>
+            <if test="houseArea != null">house_area,</if>
+            <if test="landArea != null">land_area,</if>
+            <if test="plantIncome != null">plant_income,</if>
+            <if test="vehicleValue != null">vehicle_value,</if>
+            <if test="honorLevel != null">honor_level,</if>
+            <if test="villagesGov != null">villages_gov,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="farmerId != null">#{farmerId},</if>
+            <if test="area != null">#{area},</if>
+            <if test="farmerType != null">#{farmerType},</if>
+            <if test="objName != null">#{objName},</if>
+            <if test="industry != null">#{industry},</if>
+            <if test="ageSelect != null">#{ageSelect},</if>
+            <if test="incomeAndExpenditure != null">#{incomeAndExpenditure},</if>
+            <if test="incomeDesc != null">#{incomeDesc},</if>
+            <if test="payOutDesc != null">#{payOutDesc},</if>
+            <if test="assetsDebtsStructure != null">#{assetsDebtsStructure},</if>
+            <if test="creditStatus != null">#{creditStatus},</if>
+            <if test="houseArea != null">#{houseArea},</if>
+            <if test="landArea != null">#{landArea},</if>
+            <if test="plantIncome != null">#{plantIncome},</if>
+            <if test="vehicleValue != null">#{vehicleValue},</if>
+            <if test="honorLevel != null">#{honorLevel},</if>
+            <if test="villagesGov != null">#{villagesGov},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTNewfarmerQz" parameterType="TNewfarmerQz">
+        update t_newfarmer_qz
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="farmerId != null">farmer_id = #{farmerId},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="farmerType != null">farmer_type = #{farmerType},</if>
+            <if test="objName != null">obj_name = #{objName},</if>
+            <if test="industry != null">industry = #{industry},</if>
+            <if test="ageSelect != null">age_select = #{ageSelect},</if>
+            <if test="incomeAndExpenditure != null">income_and_expenditure = #{incomeAndExpenditure},</if>
+            <if test="incomeDesc != null">income_desc = #{incomeDesc},</if>
+            <if test="payOutDesc != null">pay_out_desc = #{payOutDesc},</if>
+            <if test="assetsDebtsStructure != null">assets_debts_structure = #{assetsDebtsStructure},</if>
+            <if test="creditStatus != null">credit_status = #{creditStatus},</if>
+            <if test="houseArea != null">house_area = #{houseArea},</if>
+            <if test="landArea != null">land_area = #{landArea},</if>
+            <if test="plantIncome != null">plant_income = #{plantIncome},</if>
+            <if test="vehicleValue != null">vehicle_value = #{vehicleValue},</if>
+            <if test="honorLevel != null">honor_level = #{honorLevel},</if>
+            <if test="villagesGov != null">villages_gov = #{villagesGov},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTNewfarmerQzById" parameterType="Long">
+        delete from t_newfarmer_qz where id = #{id}
+    </delete>
+
+    <delete id="deleteTNewfarmerQzByIds" parameterType="String">
+        delete from t_newfarmer_qz where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

@@ -19,9 +19,9 @@ public class TFarmerMain extends BaseEntity
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.ASSIGN_UUID)
     /** 主键id */
-    private Long farmerId;
+    @TableId(type = IdType.ASSIGN_UUID)
+    private String farmerId;
 
     /** 户主姓名 */
     private String personName;

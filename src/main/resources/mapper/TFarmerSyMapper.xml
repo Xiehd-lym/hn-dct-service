@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahzx.hndctservice.generator.farmer.mapper.TFarmerSyMapper">
+    
+    <resultMap type="TFarmerSy" id="TFarmerSyResult">
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="income"    column="income"    />
+        <result property="payOut"    column="pay_out"    />
+        <result property="netIncome"    column="net_income"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="debtAmount"    column="debt_amount"    />
+        <result property="houseCount"    column="house_count"    />
+        <result property="vehicleCount"    column="vehicle_count"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+
+    <sql id="selectTFarmerSyVo">
+        select id, farmer_id, area, farmer_type, income, pay_out, net_income, land_area, house_area, debt_amount, house_count, vehicle_count, villages_gov from t_farmer_sy
+    </sql>
+
+    <select id="selectTFarmerSyList" parameterType="TFarmerSy" resultMap="TFarmerSyResult">
+        <include refid="selectTFarmerSyVo"/>
+        <where>  
+            <if test="farmerId != null "> and farmer_id = #{farmerId}</if>
+            <if test="area != null  and area != ''"> and area = #{area}</if>
+            <if test="farmerType != null  and farmerType != ''"> and farmer_type = #{farmerType}</if>
+            <if test="income != null  and income != ''"> and income = #{income}</if>
+            <if test="payOut != null  and payOut != ''"> and pay_out = #{payOut}</if>
+            <if test="netIncome != null  and netIncome != ''"> and net_income = #{netIncome}</if>
+            <if test="landArea != null  and landArea != ''"> and land_area = #{landArea}</if>
+            <if test="houseArea != null  and houseArea != ''"> and house_area = #{houseArea}</if>
+            <if test="debtAmount != null  and debtAmount != ''"> and debt_amount = #{debtAmount}</if>
+            <if test="houseCount != null "> and house_count = #{houseCount}</if>
+            <if test="vehicleCount != null "> and vehicle_count = #{vehicleCount}</if>
+            <if test="villagesGov != null  and villagesGov != ''"> and villages_gov = #{villagesGov}</if>
+        </where>
+    </select>
+    
+    <select id="selectTFarmerSyById" parameterType="Long" resultMap="TFarmerSyResult">
+        <include refid="selectTFarmerSyVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTFarmerSy" parameterType="TFarmerSy">
+        insert into t_farmer_sy
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="farmerId != null">farmer_id,</if>
+            <if test="area != null">area,</if>
+            <if test="farmerType != null">farmer_type,</if>
+            <if test="income != null">income,</if>
+            <if test="payOut != null">pay_out,</if>
+            <if test="netIncome != null">net_income,</if>
+            <if test="landArea != null">land_area,</if>
+            <if test="houseArea != null">house_area,</if>
+            <if test="debtAmount != null">debt_amount,</if>
+            <if test="houseCount != null">house_count,</if>
+            <if test="vehicleCount != null">vehicle_count,</if>
+            <if test="villagesGov != null">villages_gov,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="farmerId != null">#{farmerId},</if>
+            <if test="area != null">#{area},</if>
+            <if test="farmerType != null">#{farmerType},</if>
+            <if test="income != null">#{income},</if>
+            <if test="payOut != null">#{payOut},</if>
+            <if test="netIncome != null">#{netIncome},</if>
+            <if test="landArea != null">#{landArea},</if>
+            <if test="houseArea != null">#{houseArea},</if>
+            <if test="debtAmount != null">#{debtAmount},</if>
+            <if test="houseCount != null">#{houseCount},</if>
+            <if test="vehicleCount != null">#{vehicleCount},</if>
+            <if test="villagesGov != null">#{villagesGov},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTFarmerSy" parameterType="TFarmerSy">
+        update t_farmer_sy
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="farmerId != null">farmer_id = #{farmerId},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="farmerType != null">farmer_type = #{farmerType},</if>
+            <if test="income != null">income = #{income},</if>
+            <if test="payOut != null">pay_out = #{payOut},</if>
+            <if test="netIncome != null">net_income = #{netIncome},</if>
+            <if test="landArea != null">land_area = #{landArea},</if>
+            <if test="houseArea != null">house_area = #{houseArea},</if>
+            <if test="debtAmount != null">debt_amount = #{debtAmount},</if>
+            <if test="houseCount != null">house_count = #{houseCount},</if>
+            <if test="vehicleCount != null">vehicle_count = #{vehicleCount},</if>
+            <if test="villagesGov != null">villages_gov = #{villagesGov},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTFarmerSyById" parameterType="Long">
+        delete from t_farmer_sy where id = #{id}
+    </delete>
+
+    <delete id="deleteTFarmerSyByIds" parameterType="String">
+        delete from t_farmer_sy where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

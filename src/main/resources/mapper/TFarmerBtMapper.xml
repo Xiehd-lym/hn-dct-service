@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahzx.hndctservice.generator.farmer.mapper.TFarmerBtMapper">
+    
+    <resultMap type="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerBt" id="TFarmerBtResult">
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="incomeAndExpenditure"    column="income_and_expenditure"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="houseStruct"    column="house_struct"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="plantIncome"    column="plant_income"    />
+        <result property="vehicleValue"    column="vehicle_value"    />
+        <result property="otherAssetsValue"    column="other_assets_value"    />
+        <result property="debtAmount"    column="debt_amount"    />
+        <result property="honorLevel"    column="honor_level"    />
+        <result property="creditStatus"    column="credit_status"    />
+        <result property="criminalRecord"    column="criminal_record"    />
+        <result property="honorInfo"    column="honor_info"    />
+        <result property="adag"    column="adag"    />
+        <result property="qlzf"    column="qlzf"    />
+        <result property="zjsf"    column="zjsf"    />
+        <result property="xykj"    column="xykj"    />
+        <result property="whjy"    column="whjy"    />
+        <result property="yfys"    column="yfys"    />
+        <result property="jthm"    column="jthm"    />
+        <result property="lltj"    column="lltj"    />
+        <result property="hjws"    column="hjws"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+
+    <sql id="selectTFarmerBtVo">
+        select id, farmer_id, area, farmer_type, income_and_expenditure, house_area, house_struct, land_area, plant_income, vehicle_value, other_assets_value, debt_amount, honor_level, credit_status, criminal_record, honor_info, adag, qlzf, zjsf, xykj, whjy, yfys, jthm, lltj, hjws, villages_gov from t_farmer_bt
+    </sql>
+
+    <select id="selectTFarmerBtList" parameterType="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerBt" resultMap="TFarmerBtResult">
+        <include refid="selectTFarmerBtVo"/>
+        <where>  
+            <if test="farmerId != null "> and farmer_id = #{farmerId}</if>
+            <if test="area != null  and area != ''"> and area = #{area}</if>
+            <if test="farmerType != null  and farmerType != ''"> and farmer_type = #{farmerType}</if>
+            <if test="incomeAndExpenditure != null  and incomeAndExpenditure != ''"> and income_and_expenditure = #{incomeAndExpenditure}</if>
+            <if test="houseArea != null  and houseArea != ''"> and house_area = #{houseArea}</if>
+            <if test="houseStruct != null  and houseStruct != ''"> and house_struct = #{houseStruct}</if>
+            <if test="landArea != null  and landArea != ''"> and land_area = #{landArea}</if>
+            <if test="plantIncome != null  and plantIncome != ''"> and plant_income = #{plantIncome}</if>
+            <if test="vehicleValue != null  and vehicleValue != ''"> and vehicle_value = #{vehicleValue}</if>
+            <if test="otherAssetsValue != null  and otherAssetsValue != ''"> and other_assets_value = #{otherAssetsValue}</if>
+            <if test="debtAmount != null  and debtAmount != ''"> and debt_amount = #{debtAmount}</if>
+            <if test="honorLevel != null  and honorLevel != ''"> and honor_level = #{honorLevel}</if>
+            <if test="creditStatus != null  and creditStatus != ''"> and credit_status = #{creditStatus}</if>
+            <if test="criminalRecord != null  and criminalRecord != ''"> and criminal_record = #{criminalRecord}</if>
+            <if test="honorInfo != null  and honorInfo != ''"> and honor_info = #{honorInfo}</if>
+            <if test="adag != null  and adag != ''"> and adag = #{adag}</if>
+            <if test="qlzf != null  and qlzf != ''"> and qlzf = #{qlzf}</if>
+            <if test="zjsf != null  and zjsf != ''"> and zjsf = #{zjsf}</if>
+            <if test="xykj != null  and xykj != ''"> and xykj = #{xykj}</if>
+            <if test="whjy != null  and whjy != ''"> and whjy = #{whjy}</if>
+            <if test="yfys != null  and yfys != ''"> and yfys = #{yfys}</if>
+            <if test="jthm != null  and jthm != ''"> and jthm = #{jthm}</if>
+            <if test="lltj != null  and lltj != ''"> and lltj = #{lltj}</if>
+            <if test="hjws != null  and hjws != ''"> and hjws = #{hjws}</if>
+            <if test="villagesGov != null  and villagesGov != ''"> and villages_gov = #{villagesGov}</if>
+        </where>
+    </select>
+    
+    <select id="selectTFarmerBtById" parameterType="Long" resultMap="TFarmerBtResult">
+        <include refid="selectTFarmerBtVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTFarmerBt" parameterType="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerBt" useGeneratedKeys="true" keyProperty="id">
+        insert into t_farmer_bt
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="farmerId != null">farmer_id,</if>
+            <if test="area != null">area,</if>
+            <if test="farmerType != null">farmer_type,</if>
+            <if test="incomeAndExpenditure != null">income_and_expenditure,</if>
+            <if test="houseArea != null">house_area,</if>
+            <if test="houseStruct != null">house_struct,</if>
+            <if test="landArea != null">land_area,</if>
+            <if test="plantIncome != null">plant_income,</if>
+            <if test="vehicleValue != null">vehicle_value,</if>
+            <if test="otherAssetsValue != null">other_assets_value,</if>
+            <if test="debtAmount != null">debt_amount,</if>
+            <if test="honorLevel != null">honor_level,</if>
+            <if test="creditStatus != null">credit_status,</if>
+            <if test="criminalRecord != null">criminal_record,</if>
+            <if test="honorInfo != null">honor_info,</if>
+            <if test="adag != null">adag,</if>
+            <if test="qlzf != null">qlzf,</if>
+            <if test="zjsf != null">zjsf,</if>
+            <if test="xykj != null">xykj,</if>
+            <if test="whjy != null">whjy,</if>
+            <if test="yfys != null">yfys,</if>
+            <if test="jthm != null">jthm,</if>
+            <if test="lltj != null">lltj,</if>
+            <if test="hjws != null">hjws,</if>
+            <if test="villagesGov != null">villages_gov,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="farmerId != null">#{farmerId},</if>
+            <if test="area != null">#{area},</if>
+            <if test="farmerType != null">#{farmerType},</if>
+            <if test="incomeAndExpenditure != null">#{incomeAndExpenditure},</if>
+            <if test="houseArea != null">#{houseArea},</if>
+            <if test="houseStruct != null">#{houseStruct},</if>
+            <if test="landArea != null">#{landArea},</if>
+            <if test="plantIncome != null">#{plantIncome},</if>
+            <if test="vehicleValue != null">#{vehicleValue},</if>
+            <if test="otherAssetsValue != null">#{otherAssetsValue},</if>
+            <if test="debtAmount != null">#{debtAmount},</if>
+            <if test="honorLevel != null">#{honorLevel},</if>
+            <if test="creditStatus != null">#{creditStatus},</if>
+            <if test="criminalRecord != null">#{criminalRecord},</if>
+            <if test="honorInfo != null">#{honorInfo},</if>
+            <if test="adag != null">#{adag},</if>
+            <if test="qlzf != null">#{qlzf},</if>
+            <if test="zjsf != null">#{zjsf},</if>
+            <if test="xykj != null">#{xykj},</if>
+            <if test="whjy != null">#{whjy},</if>
+            <if test="yfys != null">#{yfys},</if>
+            <if test="jthm != null">#{jthm},</if>
+            <if test="lltj != null">#{lltj},</if>
+            <if test="hjws != null">#{hjws},</if>
+            <if test="villagesGov != null">#{villagesGov},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTFarmerBt" parameterType="com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerBt">
+        update t_farmer_bt
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="farmerId != null">farmer_id = #{farmerId},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="farmerType != null">farmer_type = #{farmerType},</if>
+            <if test="incomeAndExpenditure != null">income_and_expenditure = #{incomeAndExpenditure},</if>
+            <if test="houseArea != null">house_area = #{houseArea},</if>
+            <if test="houseStruct != null">house_struct = #{houseStruct},</if>
+            <if test="landArea != null">land_area = #{landArea},</if>
+            <if test="plantIncome != null">plant_income = #{plantIncome},</if>
+            <if test="vehicleValue != null">vehicle_value = #{vehicleValue},</if>
+            <if test="otherAssetsValue != null">other_assets_value = #{otherAssetsValue},</if>
+            <if test="debtAmount != null">debt_amount = #{debtAmount},</if>
+            <if test="honorLevel != null">honor_level = #{honorLevel},</if>
+            <if test="creditStatus != null">credit_status = #{creditStatus},</if>
+            <if test="criminalRecord != null">criminal_record = #{criminalRecord},</if>
+            <if test="honorInfo != null">honor_info = #{honorInfo},</if>
+            <if test="adag != null">adag = #{adag},</if>
+            <if test="qlzf != null">qlzf = #{qlzf},</if>
+            <if test="zjsf != null">zjsf = #{zjsf},</if>
+            <if test="xykj != null">xykj = #{xykj},</if>
+            <if test="whjy != null">whjy = #{whjy},</if>
+            <if test="yfys != null">yfys = #{yfys},</if>
+            <if test="jthm != null">jthm = #{jthm},</if>
+            <if test="lltj != null">lltj = #{lltj},</if>
+            <if test="hjws != null">hjws = #{hjws},</if>
+            <if test="villagesGov != null">villages_gov = #{villagesGov},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+
+</mapper>

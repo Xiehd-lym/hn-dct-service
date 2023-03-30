@@ -6,8 +6,6 @@ import com.ahzx.hndctservice.entity.mainFarmerEntity.TFarmerMain;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.Map;
-
 /**
  * 农户信息主Mapper接口
  * 
@@ -42,11 +40,11 @@ public interface TFarmerMainMapper extends BaseMapper<TFarmerMain>
      * @param farmerDo 农户信息主
      * @return 结果
      */
-    TFarmerBTDto selectFullMsgBT(FarmerDo farmerDo);
-    TFarmerDADto selectFullMsgDA(FarmerDo farmerDo);
-    TFarmerHKDto selectFullMsgHK(FarmerDo farmerDo);
-    TFarmerQZDto selectFullMsgQZ(FarmerDo farmerDo);
-    TFarmerSYDto selectFullMsgSY(FarmerDo farmerDo);
-    TFarmerWCDto selectFullMsgWC(FarmerDo farmerDo);
-    TFarmerWZSDto selectFullMsgWZS(FarmerDo farmerDo);
+    TFarmerBt selectFullMsgBT(FarmerDo farmerDo);
+    TFarmerDa selectFullMsgDA(FarmerDo farmerDo);
+    TFarmerHk selectFullMsgHK(FarmerDo farmerDo);
+    TFarmerQz selectFullMsgQZ(FarmerDo farmerDo);
+    TFarmerSy selectFullMsgSY(FarmerDo farmerDo);
+    TFarmerWc selectFullMsgWC(FarmerDo farmerDo);
+    TFarmerWzs selectFullMsgWZS(FarmerDo farmerDo);
 }

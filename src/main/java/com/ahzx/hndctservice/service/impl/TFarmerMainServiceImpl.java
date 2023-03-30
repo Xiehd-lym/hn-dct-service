@@ -30,7 +30,7 @@ public class TFarmerMainServiceImpl extends ServiceImpl<TFarmerMainMapper, TFarm
     public int insertTFarmerMain(TFarmerMain tFarmerMain)
     {
         tFarmerMain.setCreateTime(DateUtils.getNowDate());
-        return tFarmerMainMapper.insert(tFarmerMain);
+        return tFarmerMainMapper.insertTFarmerMain(tFarmerMain);
     }
 
     /**

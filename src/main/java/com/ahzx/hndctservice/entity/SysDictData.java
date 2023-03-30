@@ -1,5 +1,6 @@
 package com.ahzx.hndctservice.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 /**
@@ -13,6 +14,7 @@ public class SysDictData  extends BaseEntity{
     private static final long serialVersionUID = 1L;
 
     /** 字典编码 */
+    @TableId
     private Long dictCode;
 
     /** 字典排序 */

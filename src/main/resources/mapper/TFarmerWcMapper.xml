@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahzx.hndctservice.generator.farmer.mapper.TFarmerWcMapper">
+    
+    <resultMap type="TFarmerWc" id="TFarmerWcResult">
+        <result property="id"    column="id"    />
+        <result property="farmerId"    column="farmer_id"    />
+        <result property="area"    column="area"    />
+        <result property="farmerType"    column="farmer_type"    />
+        <result property="incomeAndExpenditure"    column="income_and_expenditure"    />
+        <result property="houseArea"    column="house_area"    />
+        <result property="houseDate"    column="house_date"    />
+        <result property="landArea"    column="land_area"    />
+        <result property="landIncome"    column="land_income"    />
+        <result property="vehicleValue"    column="vehicle_value"    />
+        <result property="otherAssetsValue"    column="other_assets_value"    />
+        <result property="debtDesc"    column="debt_desc"    />
+        <result property="insurance"    column="insurance"    />
+        <result property="countryInsurance"    column="country_insurance"    />
+        <result property="honorLevel"    column="honor_level"    />
+        <result property="criminalRecord"    column="criminal_record"    />
+        <result property="villagesGov"    column="villages_gov"    />
+    </resultMap>
+
+    <sql id="selectTFarmerWcVo">
+        select id, farmer_id, area, farmer_type, income_and_expenditure, house_area, house_date, land_area, land_income, vehicle_value, other_assets_value, debt_desc, insurance, country_insurance, honor_level, criminal_record, villages_gov from t_farmer_wc
+    </sql>
+
+    <select id="selectTFarmerWcList" parameterType="TFarmerWc" resultMap="TFarmerWcResult">
+        <include refid="selectTFarmerWcVo"/>
+        <where>  
+            <if test="farmerId != null "> and farmer_id = #{farmerId}</if>
+            <if test="area != null  and area != ''"> and area = #{area}</if>
+            <if test="farmerType != null  and farmerType != ''"> and farmer_type = #{farmerType}</if>
+            <if test="incomeAndExpenditure != null  and incomeAndExpenditure != ''"> and income_and_expenditure = #{incomeAndExpenditure}</if>
+            <if test="houseArea != null  and houseArea != ''"> and house_area = #{houseArea}</if>
+            <if test="houseDate != null  and houseDate != ''"> and house_date = #{houseDate}</if>
+            <if test="landArea != null  and landArea != ''"> and land_area = #{landArea}</if>
+            <if test="landIncome != null  and landIncome != ''"> and land_income = #{landIncome}</if>
+            <if test="vehicleValue != null  and vehicleValue != ''"> and vehicle_value = #{vehicleValue}</if>
+            <if test="otherAssetsValue != null  and otherAssetsValue != ''"> and other_assets_value = #{otherAssetsValue}</if>
+            <if test="debtDesc != null  and debtDesc != ''"> and debt_desc = #{debtDesc}</if>
+            <if test="insurance != null  and insurance != ''"> and insurance = #{insurance}</if>
+            <if test="countryInsurance != null  and countryInsurance != ''"> and country_insurance = #{countryInsurance}</if>
+            <if test="honorLevel != null  and honorLevel != ''"> and honor_level = #{honorLevel}</if>
+            <if test="criminalRecord != null  and criminalRecord != ''"> and criminal_record = #{criminalRecord}</if>
+            <if test="villagesGov != null  and villagesGov != ''"> and villages_gov = #{villagesGov}</if>
+        </where>
+    </select>
+    
+    <select id="selectTFarmerWcById" parameterType="Long" resultMap="TFarmerWcResult">
+        <include refid="selectTFarmerWcVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTFarmerWc" parameterType="TFarmerWc">
+        insert into t_farmer_wc
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="farmerId != null">farmer_id,</if>
+            <if test="area != null">area,</if>
+            <if test="farmerType != null">farmer_type,</if>
+            <if test="incomeAndExpenditure != null">income_and_expenditure,</if>
+            <if test="houseArea != null">house_area,</if>
+            <if test="houseDate != null">house_date,</if>
+            <if test="landArea != null">land_area,</if>
+            <if test="landIncome != null">land_income,</if>
+            <if test="vehicleValue != null">vehicle_value,</if>
+            <if test="otherAssetsValue != null">other_assets_value,</if>
+            <if test="debtDesc != null">debt_desc,</if>
+            <if test="insurance != null">insurance,</if>
+            <if test="countryInsurance != null">country_insurance,</if>
+            <if test="honorLevel != null">honor_level,</if>
+            <if test="criminalRecord != null">criminal_record,</if>
+            <if test="villagesGov != null">villages_gov,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="farmerId != null">#{farmerId},</if>
+            <if test="area != null">#{area},</if>
+            <if test="farmerType != null">#{farmerType},</if>
+            <if test="incomeAndExpenditure != null">#{incomeAndExpenditure},</if>
+            <if test="houseArea != null">#{houseArea},</if>
+            <if test="houseDate != null">#{houseDate},</if>
+            <if test="landArea != null">#{landArea},</if>
+            <if test="landIncome != null">#{landIncome},</if>
+            <if test="vehicleValue != null">#{vehicleValue},</if>
+            <if test="otherAssetsValue != null">#{otherAssetsValue},</if>
+            <if test="debtDesc != null">#{debtDesc},</if>
+            <if test="insurance != null">#{insurance},</if>
+            <if test="countryInsurance != null">#{countryInsurance},</if>
+            <if test="honorLevel != null">#{honorLevel},</if>
+            <if test="criminalRecord != null">#{criminalRecord},</if>
+            <if test="villagesGov != null">#{villagesGov},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTFarmerWc" parameterType="TFarmerWc">
+        update t_farmer_wc
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="farmerId != null">farmer_id = #{farmerId},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="farmerType != null">farmer_type = #{farmerType},</if>
+            <if test="incomeAndExpenditure != null">income_and_expenditure = #{incomeAndExpenditure},</if>
+            <if test="houseArea != null">house_area = #{houseArea},</if>
+            <if test="houseDate != null">house_date = #{houseDate},</if>
+            <if test="landArea != null">land_area = #{landArea},</if>
+            <if test="landIncome != null">land_income = #{landIncome},</if>
+            <if test="vehicleValue != null">vehicle_value = #{vehicleValue},</if>
+            <if test="otherAssetsValue != null">other_assets_value = #{otherAssetsValue},</if>
+            <if test="debtDesc != null">debt_desc = #{debtDesc},</if>
+            <if test="insurance != null">insurance = #{insurance},</if>
+            <if test="countryInsurance != null">country_insurance = #{countryInsurance},</if>
+            <if test="honorLevel != null">honor_level = #{honorLevel},</if>
+            <if test="criminalRecord != null">criminal_record = #{criminalRecord},</if>
+            <if test="villagesGov != null">villages_gov = #{villagesGov},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTFarmerWcById" parameterType="Long">
+        delete from t_farmer_wc where id = #{id}
+    </delete>
+
+    <delete id="deleteTFarmerWcByIds" parameterType="String">
+        delete from t_farmer_wc where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

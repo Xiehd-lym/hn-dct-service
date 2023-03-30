@@ -1,7 +1,7 @@
 package com.ahzx.hndctservice.controller;
 
 import com.ahzx.hndctservice.common.result.R;
-import com.ahzx.hndctservice.common.utils.JwtUtil;
+import com.ahzx.hndctservice.common.utils.JwtUtils;
 import com.ahzx.hndctservice.entity.UserLogin;
 import com.ahzx.hndctservice.entity.Vo.UserLoginVo;
 import com.ahzx.hndctservice.mapper.UserLoginMapper;
@@ -59,7 +59,7 @@ public class UserApiController {
         List<UserLogin> list = userLoginMapper.selectList(queryWrapper);
         if(CollectionUtils.isNotEmpty(list)) {
             // 登录成功,加上 token
-            String token = JwtUtil.createToken(list.get(0).getUsername());
+            String token = JwtUtils.createToken(list.get(0).getUsername());
 
             Map<String, Object> data = new HashMap<>();
             data.put("token", token);
@@ -70,5 +70,9 @@ public class UserApiController {
             return R.error().data("loginResult", false).message("登录失败，请认真检查账号密码哦");
         }
     }
+
+
+    // todo 采集员 我的接口
+
 
 }

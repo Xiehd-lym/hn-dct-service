@@ -25,18 +25,11 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
-        <!--  Springboot  @Validated 参数检验     -->
-<!--        <dependency>-->
-<!--            <groupId>org.hibernate</groupId>-->
-<!--            <artifactId>hibernate-validator</artifactId>-->
-<!--            <version>4.3.1.Final</version>-->
-<!--        </dependency>-->
         <!--  Springboot  @Validated 参数检验 解决冲突     -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
-
 
         <!--    JSONObject    -->
         <dependency>
@@ -161,6 +154,12 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
             <version>3.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.4</version>
         </dependency>
 
 
