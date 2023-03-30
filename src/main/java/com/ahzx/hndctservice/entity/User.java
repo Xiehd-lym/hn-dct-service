@@ -10,8 +10,7 @@ import lombok.Data;
  * @Date 2023 03 28
  **/
 @Data
-@TableName("user_login")
-public class UserLogin extends UserLoginVo {
+public class User extends UserLoginVo {
 
     // todo 用户
 

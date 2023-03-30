@@ -1,5 +1,7 @@
 package com.ahzx.hndctservice.entity.mainFarmerEntity;
 
+import com.ahzx.hndctservice.common.annotation.PrivacyEncrypt;
+import com.ahzx.hndctservice.common.enums.PrivacyTypeEnum;
 import com.ahzx.hndctservice.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -30,12 +32,14 @@ public class TFarmerMain extends BaseEntity
     private String homeNo;
 
     /** 身份证号 */
+    @PrivacyEncrypt(type = PrivacyTypeEnum.ID_CARD)
     private String cardNo;
 
     /** 年龄 */
     private Long age;
 
     /** 联系电话 */
+    @PrivacyEncrypt(type = PrivacyTypeEnum.PHONE)
     private String phone;
 
     /** 学历 */
