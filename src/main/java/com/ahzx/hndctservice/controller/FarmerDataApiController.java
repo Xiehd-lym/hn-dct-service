@@ -50,6 +50,7 @@ public class FarmerDataApiController {
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerBt,tFarmerMain);
         mainService.save(tFarmerMain);
+        farmerBt.setFarmerType("farmer");
         farmerBt.setFarmerId(tFarmerMain.getFarmerId());
         btService.insertTFarmerBt(farmerBt);
     }
@@ -72,6 +73,7 @@ public class FarmerDataApiController {
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerDa,tFarmerMain);
         mainService.save(tFarmerMain);
+        farmerDa.setFarmerType("farmer");
         farmerDa.setFarmerId(tFarmerMain.getFarmerId());
         daService.insertTFarmerDa(farmerDa);
     }
@@ -92,7 +94,18 @@ public class FarmerDataApiController {
     public void hkData(@RequestBody TFarmerHk farmerHk){
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerHk,tFarmerMain);
+
+        farmerHk.setFarmerTabName("t_farmer_hk");
+
+
+
         mainService.save(tFarmerMain);
+
+
+
+
+
+        farmerHk.setFarmerType("farmer");
         farmerHk.setFarmerId(tFarmerMain.getFarmerId());
         hkService.insertTFarmerHk(farmerHk);
     }
@@ -114,6 +127,10 @@ public class FarmerDataApiController {
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerQz,tFarmerMain);
         mainService.save(tFarmerMain);
+
+        farmerQz.setFarmerType("farmer");
+
+
         farmerQz.setFarmerId(tFarmerMain.getFarmerId());
         qzService.insertTFarmerQz(farmerQz);
     }
@@ -135,6 +152,8 @@ public class FarmerDataApiController {
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerSy,tFarmerMain);
         mainService.save(tFarmerMain);
+
+        farmerSy.setFarmerType("farmer");
         farmerSy.setFarmerId(tFarmerMain.getFarmerId());
         syService.insertTFarmerSy(farmerSy);
     }
@@ -156,6 +175,10 @@ public class FarmerDataApiController {
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerWc,tFarmerMain);
         mainService.save(tFarmerMain);
+
+        farmerWc.setFarmerType("farmer");
+
+
         farmerWc.setFarmerId(tFarmerMain.getFarmerId());
         wcService.insertTFarmerWc(farmerWc);
     }
@@ -177,6 +200,10 @@ public class FarmerDataApiController {
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerWzs,tFarmerMain);
         mainService.save(tFarmerMain);
+
+        farmerWzs.setFarmerType("farmer");
+
+
         farmerWzs.setFarmerId(tFarmerMain.getFarmerId());
         wzsService.insertTFarmerWzs(farmerWzs);
     }

@@ -22,9 +22,9 @@ public class UserLoginVo implements Serializable {
     @NotEmpty(message = "用户姓名不能为空")
     private String username;
 
-    @ApiModelProperty(value = "电话号码")
-//    @NotEmpty(message = "电话号码不能为空")
-    private String mobile;
+//    @ApiModelProperty(value = "电话号码")
+////    @NotEmpty(message = "电话号码不能为空")
+//    private String mobile;
 
     @ApiModelProperty(value = "密码")
     @NotEmpty(message = "登陆密码不能为空")

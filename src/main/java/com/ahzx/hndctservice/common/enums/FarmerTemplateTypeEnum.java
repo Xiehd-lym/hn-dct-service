@@ -1,4 +1,4 @@
-package com.ahzx.hndctservice.common.enums.template;
+package com.ahzx.hndctservice.common.enums;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -41,11 +41,6 @@ public enum FarmerTemplateTypeEnum {
         this.code = code;
         this.templateName = templateName;
         this.area = area;
-    }
-
-    public static void main(String[] args) {
-        String templateNameByArea = getTemplateNameByArea("3000001");
-        System.out.println(templateNameByArea);
     }
 
     public static String getTemplateNameByArea(String area){

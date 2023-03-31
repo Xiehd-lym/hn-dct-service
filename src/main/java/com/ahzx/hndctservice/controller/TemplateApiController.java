@@ -1,7 +1,7 @@
 package com.ahzx.hndctservice.controller;
 
-import com.ahzx.hndctservice.common.enums.template.FarmerTemplateTypeEnum;
-import com.ahzx.hndctservice.common.enums.template.NewFarmerTemplateTypeEnum;
+import com.ahzx.hndctservice.common.enums.FarmerTemplateTypeEnum;
+import com.ahzx.hndctservice.common.enums.NewFarmerTemplateTypeEnum;
 import com.ahzx.hndctservice.common.result.R;
 import com.ahzx.hndctservice.entity.SysDictData;
 import com.ahzx.hndctservice.entity.SysDictType;
@@ -41,13 +41,14 @@ public class TemplateApiController {
     @ApiOperation("根据采集范围获取所有字典数据的模板")
     @PostMapping("/getTemplate")
     public R getValueTemplate(@Validated @RequestBody TemplateTypeVo templateTypeVo){
-        // 根据地区和用户类型，确定模板值，用模板值去字典数据中，模糊查询，获取所有选项框的属性值
+        // 根据地区和查询的用户类型，确定模板值，用模板值去字典数据中，模糊查询，获取所有选项框的属性值
         String area = templateTypeVo.getArea();
         String loginUserType = templateTypeVo.getLoginUserType();
 
         String templateName;
         // todo 待确定用户类型值
         if (loginUserType.equals("1")){
+            // 从枚举中查询到模板名称模糊值
             templateName = FarmerTemplateTypeEnum.getTemplateNameByArea(area);
             return getR(templateName);
         }else {
@@ -57,10 +58,12 @@ public class TemplateApiController {
     }
 
     private R getR(String templateName) {
+        // 查询模板下所有的选项
         List<SysDictType> sysDictTypes = dictTypeService.selectDictTypeByTemplate(templateName);
 
         Map<String, Object> result = new HashMap<>();
         for (SysDictType x : sysDictTypes) {
+            // 查询选项框的所有选项
             String dictType = x.getDictType();
             List<SysDictData> sysDictData = dictDataService.selectDictDataByType(dictType);
             result.put(dictType, sysDictData);
