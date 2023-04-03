@@ -1,5 +1,6 @@
 package com.ahzx.hndctservice.controller;
 
+import com.ahzx.hndctservice.common.result.R;
 import com.ahzx.hndctservice.entity.Dto.TNewFarmer.*;
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TNewfarmerMain;
 import com.ahzx.hndctservice.generator.newFarmer.service.*;
@@ -46,7 +47,7 @@ public class NewFarmerDataApiController {
 
     @PostMapping("/btData")
     @Transactional
-    public void btData(@RequestBody TNewfarmerBt tNewfarmerBt){
+    public R btData(@RequestBody TNewfarmerBt tNewfarmerBt){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerBt,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_bt");
@@ -54,22 +55,24 @@ public class NewFarmerDataApiController {
         tNewfarmerBt.setFarmerType("newFarmer");
         tNewfarmerBt.setFarmerId(newfarmerMain.getFarmerId());
         btService.insertTNewfarmerBt(tNewfarmerBt);
+        return R.ok().message("操作成功");
     }
     @PostMapping("/btDataUpdate")
     @Transactional
-    public void btDataUpdate(@RequestBody TNewfarmerBt tNewfarmerBt){
+    public R btDataUpdate(@RequestBody TNewfarmerBt tNewfarmerBt){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerBt,newfarmerMain);
         mainService.updateById(newfarmerMain);
         tNewfarmerBt.setFarmerId(newfarmerMain.getFarmerId());
         btService.updateTNewfarmerBt(tNewfarmerBt);
+        return R.ok().message("操作成功");
     }
 
     /**                                 **/
 
     @PostMapping("/daData")
     @Transactional
-    public void daData(@RequestBody TNewfarmerDa tNewfarmerDa){
+    public R daData(@RequestBody TNewfarmerDa tNewfarmerDa){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerDa,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_da");
@@ -77,23 +80,25 @@ public class NewFarmerDataApiController {
         tNewfarmerDa.setFarmerType("newFarmer");
         tNewfarmerDa.setFarmerId(newfarmerMain.getFarmerId());
         daService.insertTNewfarmerDa(tNewfarmerDa);
+        return R.ok().message("操作成功");
     }
 
     @PostMapping("/daDataUpdate")
     @Transactional
-    public void daDataUpdate(@RequestBody TNewfarmerDa tNewfarmerDa){
+    public R daDataUpdate(@RequestBody TNewfarmerDa tNewfarmerDa){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerDa,newfarmerMain);
         mainService.updateById(newfarmerMain);
         tNewfarmerDa.setFarmerId(newfarmerMain.getFarmerId());
         daService.updateTNewfarmerDa(tNewfarmerDa);
+        return R.ok().message("操作成功");
     }
 
     /**                                 **/
 
     @PostMapping("/hkData")
     @Transactional
-    public void hkData(@RequestBody TNewfarmerHk tNewfarmerHk){
+    public R hkData(@RequestBody TNewfarmerHk tNewfarmerHk){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerHk,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_hk");
@@ -101,23 +106,25 @@ public class NewFarmerDataApiController {
         tNewfarmerHk.setFarmerType("newFarmer");
         tNewfarmerHk.setFarmerId(newfarmerMain.getFarmerId());
         hkService.insertTNewfarmerHk(tNewfarmerHk);
+        return R.ok().message("操作成功");
     }
 
     @PostMapping("/hkDataUpdate")
     @Transactional
-    public void hkDataUpdate(@RequestBody TNewfarmerHk tNewfarmerHk){
+    public R hkDataUpdate(@RequestBody TNewfarmerHk tNewfarmerHk){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerHk,newfarmerMain);
         mainService.updateById(newfarmerMain);
         tNewfarmerHk.setFarmerId(newfarmerMain.getFarmerId());
         hkService.updateTNewfarmerHk(tNewfarmerHk);
+        return R.ok().message("操作成功");
     }
 
     /**                                 **/
 
     @PostMapping("/syData")
     @Transactional
-    public void data(@RequestBody TNewfarmerSy tNewfarmerSy){
+    public R data(@RequestBody TNewfarmerSy tNewfarmerSy){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerSy,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_sy");
@@ -125,23 +132,25 @@ public class NewFarmerDataApiController {
         tNewfarmerSy.setFarmerType("newFarmer");
         tNewfarmerSy.setFarmerId(newfarmerMain.getFarmerId());
         syService.insertTNewfarmerSy(tNewfarmerSy);
+        return R.ok().message("操作成功");
     }
 
     @PostMapping("/syDataUpdate")
     @Transactional
-    public void dataUpdate(@RequestBody TNewfarmerSy tNewfarmerSy){
+    public R dataUpdate(@RequestBody TNewfarmerSy tNewfarmerSy){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerSy,newfarmerMain);
         mainService.updateById(newfarmerMain);
         tNewfarmerSy.setFarmerId(newfarmerMain.getFarmerId());
         syService.updateTNewfarmerSy(tNewfarmerSy);
+        return R.ok().message("操作成功");
     }
 
     /**                                 **/
 
     @PostMapping("/qzData")
     @Transactional
-    public void qzData(@RequestBody TNewfarmerQz tNewfarmerQz){
+    public R qzData(@RequestBody TNewfarmerQz tNewfarmerQz){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerQz,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_qz");
@@ -149,23 +158,25 @@ public class NewFarmerDataApiController {
         tNewfarmerQz.setFarmerType("newFarmer");
         tNewfarmerQz.setFarmerId(newfarmerMain.getFarmerId());
         qzService.insertTNewfarmerQz(tNewfarmerQz);
+        return R.ok().message("操作成功");
     }
 
     @PostMapping("/qzDataUpdate")
     @Transactional
-    public void qzDataUpdate(@RequestBody TNewfarmerQz tNewfarmerQz){
+    public R qzDataUpdate(@RequestBody TNewfarmerQz tNewfarmerQz){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerQz,newfarmerMain);
         mainService.updateById(newfarmerMain);
         tNewfarmerQz.setFarmerId(newfarmerMain.getFarmerId());
         qzService.updateTNewfarmerQz(tNewfarmerQz);
+        return R.ok().message("操作成功");
     }
 
     /**                                 **/
 
     @PostMapping("/wcData")
     @Transactional
-    public void wcData(@RequestBody TNewfarmerWc tNewfarmerWc){
+    public R wcData(@RequestBody TNewfarmerWc tNewfarmerWc){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerWc,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_wc");
@@ -173,23 +184,25 @@ public class NewFarmerDataApiController {
         tNewfarmerWc.setFarmerType("newFarmer");
         tNewfarmerWc.setFarmerId(newfarmerMain.getFarmerId());
         wcService.insertTNewfarmerWc(tNewfarmerWc);
+        return R.ok().message("操作成功");
     }
 
     @PostMapping("/wcDataUpdate")
     @Transactional
-    public void wcDataUpdate(@RequestBody TNewfarmerWc tNewfarmerWc){
+    public R wcDataUpdate(@RequestBody TNewfarmerWc tNewfarmerWc){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerWc,newfarmerMain);
         mainService.updateById(newfarmerMain);
         tNewfarmerWc.setFarmerId(newfarmerMain.getFarmerId());
         wcService.updateTNewfarmerWc(tNewfarmerWc);
+        return R.ok().message("操作成功");
     }
 
     /**                                 **/
 
     @PostMapping("/wzsData")
     @Transactional
-    public void wzsData(@RequestBody TNewfarmerWzs tNewfarmerWzs){
+    public R wzsData(@RequestBody TNewfarmerWzs tNewfarmerWzs){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerWzs,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_wzs");
@@ -197,16 +210,18 @@ public class NewFarmerDataApiController {
         tNewfarmerWzs.setFarmerType("newFarmer");
         tNewfarmerWzs.setFarmerId(newfarmerMain.getFarmerId());
         wzsService.insertTNewfarmerWzs(tNewfarmerWzs);
+        return R.ok().message("操作成功");
     }
 
     @PostMapping("/wzsDataUpdate")
     @Transactional
-    public void wzsDataUpdate(@RequestBody TNewfarmerWzs tNewfarmerWzs){
+    public R wzsDataUpdate(@RequestBody TNewfarmerWzs tNewfarmerWzs){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerWzs,newfarmerMain);
         mainService.updateById(newfarmerMain);
         tNewfarmerWzs.setFarmerId(newfarmerMain.getFarmerId());
         wzsService.updateTNewfarmerWzs(tNewfarmerWzs);
+        return R.ok().message("操作成功");
     }
 
 }
