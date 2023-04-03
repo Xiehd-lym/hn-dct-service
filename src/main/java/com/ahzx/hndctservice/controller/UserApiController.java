@@ -5,6 +5,7 @@ import com.ahzx.hndctservice.common.utils.CpachaUtil;
 import com.ahzx.hndctservice.common.utils.DateUtils;
 import com.ahzx.hndctservice.common.utils.JwtUtils;
 import com.ahzx.hndctservice.entity.BizCollector;
+import com.ahzx.hndctservice.entity.Vo.BizCollectorVo;
 import com.ahzx.hndctservice.entity.Vo.UserLoginVo;
 import com.ahzx.hndctservice.mapper.UserLoginMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -13,6 +14,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.*;
@@ -112,8 +114,11 @@ public class UserApiController {
             String token = JwtUtils.createToken(list.get(0).getLoginName());
             Map<String, Object> data = new HashMap<>();
             data.put("token", token);
-            data.put("user",list.get(0));
-            data.put("areaName",userLoginMapper.getAreaNameByCity(list.get(0).getCity()));
+            BizCollectorVo bizCollectorVo = new BizCollectorVo();
+            BeanUtils.copyProperties(list.get(0),bizCollectorVo);
+            bizCollectorVo.setAreaName(userLoginMapper.getAreaNameByCity(list.get(0).getCity()));
+            data.put("user",bizCollectorVo);
+//            data.put("areaName",userLoginMapper.getAreaNameByCity(list.get(0).getCity()));
             data.put("loginResult", true);
             return R.ok().code(200).data("data", data).message("登录成功");
         }else {
@@ -122,6 +127,11 @@ public class UserApiController {
     }
 
     // todo 采集员 我的接口
+    @GetMapping("/myCount")
+    @ResponseBody
+    public R myCount(){
 
+        return R.ok();
+    }
 
 }
