@@ -30,7 +30,7 @@ public class UserLoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("执行了拦截器的preHandle方法");
         // 从 request 的 header 中获得 token 值
-        String token = request.getHeader("authorization");
+        String token = request.getHeader("Authorization");
         log.info("-------token-------:{}",token);
         if (StringUtils.isBlank(token)) {
             throw new UserLoginException();
