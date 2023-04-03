@@ -13,8 +13,6 @@ import lombok.Data;
 public class BizCollector extends UserLoginVo {
 
     private Long collectorId;
-    private String loginName;
-    private String password;
     private String phone;
     private String status;
     private String areaNo;

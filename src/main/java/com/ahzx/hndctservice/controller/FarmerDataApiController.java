@@ -46,7 +46,8 @@ public class FarmerDataApiController {
     @Autowired
     private ITFarmerWzsService wzsService;
 
-    /**                                 **/
+    /**
+     * 1 添加参数 hisType  *  **/
     @PostMapping("/btData")
     @Transactional
     public void btData(@RequestBody TFarmerBt farmerBt){

@@ -2,6 +2,7 @@ package com.ahzx.hndctservice.controller;
 
 import com.ahzx.hndctservice.common.result.R;
 import com.ahzx.hndctservice.common.utils.CpachaUtil;
+import com.ahzx.hndctservice.common.utils.DateUtils;
 import com.ahzx.hndctservice.common.utils.JwtUtils;
 import com.ahzx.hndctservice.entity.BizCollector;
 import com.ahzx.hndctservice.entity.Vo.UserLoginVo;
@@ -13,6 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.ImageIO;
@@ -20,7 +22,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +45,7 @@ public class UserApiController {
 
     // todo 返回首页需要显示的市区
     @GetMapping("/getCpacha")
+    @ResponseBody
     public R getCpacha(
             @RequestParam(name = "len",required = false,defaultValue = "4") Integer codeLen,
             @RequestParam(name = "width",required = false,defaultValue = "100") Integer width,
@@ -57,14 +62,21 @@ public class UserApiController {
         httpSession.setAttribute(cpachaType, code);
         // 获得旋转字体的验证码图片
         BufferedImage bufferedImage = caCpachaUtil.generatorRotateVCodeImage(code, true);
+        ByteArrayOutputStream  outputStream = new ByteArrayOutputStream();
+        Map<String, Object> result = new HashMap<>();
         try {
             // 以图片流的形式写到响应对象中
-            ImageIO.write(bufferedImage, "gif", response.getOutputStream());
+            ImageIO.write(bufferedImage, "gif", outputStream);
+            byte[] img = outputStream.toByteArray();
+            String base64String = Base64Utils.encodeToString(img);
+
+            result.put("imgBase64",base64String);
+            result.put("Cpacha",code);
+            log.info("登录时间是：{}，的验证码为：{}", DateUtils.getNowDate(),code);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("code---"+code);
-        return R.ok().message("验证码生成成功").data("Cpacha",code);
+        return R.ok().message("验证码生成成功").data(result);
     }
 
     /**
@@ -79,27 +91,26 @@ public class UserApiController {
             HttpServletRequest request,
             @ApiParam(value = "登录表单", required = true) @RequestBody UserLoginVo loginVo){
         // 获取Session对
-        HttpSession httpSession = request.getSession();
-        String code =(String)httpSession.getAttribute(cpachaType);
+//        HttpSession httpSession = request.getSession();
+//        String code =(String)httpSession.getAttribute(cpachaType);
 
-        String username = loginVo.getUsername();
+        String loginName = loginVo.getLoginName();
         String password = loginVo.getPassword();
 
         // 验证账号密码是否正确
         BizCollector userLogin = new BizCollector();
-        userLogin.setUsername(username);
-        // todo 拿到若以的登录代码 加盐加密
+        userLogin.setLoginName(loginName);
+        // todo 拿到若依的登录代码 加盐加密
         userLogin.setPassword(password);
         QueryWrapper<BizCollector> queryWrapper = new QueryWrapper<>();
         queryWrapper
-                .eq("username", username)
+                .eq("login_name", loginName)
                 .eq("password", password);
 
         List<BizCollector> list = userLoginMapper.selectList(queryWrapper);
         if(CollectionUtils.isNotEmpty(list)) {
             // 登录成功,加上 token
-            String token = JwtUtils.createToken(list.get(0).getUsername());
-
+            String token = JwtUtils.createToken(list.get(0).getLoginName());
             Map<String, Object> data = new HashMap<>();
             data.put("token", token);
             data.put("user",list.get(0));
@@ -109,7 +120,6 @@ public class UserApiController {
             return R.error().data("loginResult", false).message("登录失败，请认真检查账号密码哦");
         }
     }
-
 
     // todo 采集员 我的接口
 

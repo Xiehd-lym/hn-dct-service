@@ -19,11 +19,11 @@ public class UserLoginVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String cpachaType;
+//    private String cpachaType;
 
     @ApiModelProperty(value = "用户名")
     @NotEmpty(message = "用户姓名不能为空")
-    private String username;
+    private String loginName;
 
 //    @ApiModelProperty(value = "电话号码")
 ////    @NotEmpty(message = "电话号码不能为空")
