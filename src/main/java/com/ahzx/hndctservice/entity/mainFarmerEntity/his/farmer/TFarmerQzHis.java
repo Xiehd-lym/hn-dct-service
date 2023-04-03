@@ -1,19 +1,18 @@
-package com.ahzx.hndctservice.entity.mainFarmerEntity.his;
+package com.ahzx.hndctservice.entity.mainFarmerEntity.his.farmer;
 
+import com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerQz;
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TFarmerMain;
 import lombok.Data;
 
 import java.util.Date;
 
 /**
- * 农户信息主对象 t_farmer_main_his
- * 
- * @author ruoyi
- * @date 2023-03-29
- */
+ * 琼中 *
+ * @Author xiehd
+ * @Date 2023 03 30
+ **/
 @Data
-public class TFarmerMainHis extends TFarmerMain
-{
+public class TFarmerQzHis extends TFarmerQz {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,5 +21,4 @@ public class TFarmerMainHis extends TFarmerMain
     private String hisName;
 
     private String supportingFileUrl;
-
 }
