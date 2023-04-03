@@ -17,7 +17,7 @@ public class TFarmerBt extends TFarmerMain {
     private Long id;
 
     /** 农户id */
-    private String farmerId;
+    private Long farmerId;
 
     /** 区域 */
     private String area;

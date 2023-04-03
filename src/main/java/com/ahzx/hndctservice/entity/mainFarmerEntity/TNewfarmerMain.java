@@ -22,8 +22,9 @@ public class TNewfarmerMain extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 主键id */
-    @TableId(type = IdType.ASSIGN_UUID)
-    private String farmerId;
+//    @TableId
+//    @TableId(type = IdType.ASSIGN_UUID)
+    private Long farmerId;
 
     /** 所有者（负责人）姓名 */
     private String personName;

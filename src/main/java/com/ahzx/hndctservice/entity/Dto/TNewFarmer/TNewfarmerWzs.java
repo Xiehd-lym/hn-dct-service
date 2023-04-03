@@ -17,7 +17,7 @@ public class TNewfarmerWzs extends TNewfarmerMain {
     private Long id;
 
     /** 新型农业主体id */
-    private String farmerId;
+    private Long farmerId;
 
     /** 区域 */
     private String area;

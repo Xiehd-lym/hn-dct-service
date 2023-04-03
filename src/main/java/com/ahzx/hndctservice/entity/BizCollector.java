@@ -1,6 +1,7 @@
 package com.ahzx.hndctservice.entity;
 
 import com.ahzx.hndctservice.entity.Vo.UserLoginVo;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -12,6 +13,7 @@ import lombok.Data;
 @Data
 public class BizCollector extends UserLoginVo {
 
+    @TableId
     private Long collectorId;
     private String phone;
     private String status;

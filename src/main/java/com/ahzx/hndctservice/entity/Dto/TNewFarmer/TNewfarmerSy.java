@@ -18,7 +18,7 @@ public class TNewfarmerSy extends TNewfarmerMain {
     private Long id;
 
     /** 主键id */
-    private String farmerId;
+    private Long farmerId;
 
     /** 区域 */
     private String area;
