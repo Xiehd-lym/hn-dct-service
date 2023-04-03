@@ -1,6 +1,6 @@
 package com.ahzx.hndctservice.mapper;
 
-import com.ahzx.hndctservice.entity.User;
+import com.ahzx.hndctservice.entity.BizCollector;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @Date 2023 03 29
  **/
 @Mapper
-public interface UserLoginMapper extends BaseMapper<User> {
+public interface UserLoginMapper extends BaseMapper<BizCollector> {
 
 }

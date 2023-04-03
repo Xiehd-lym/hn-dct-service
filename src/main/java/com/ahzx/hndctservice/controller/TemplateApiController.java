@@ -46,7 +46,6 @@ public class TemplateApiController {
         String loginUserType = templateTypeVo.getLoginUserType();
 
         String templateName;
-        // todo 待确定用户类型值
         if (loginUserType.equals("1")){
             // 从枚举中查询到模板名称模糊值
             templateName = FarmerTemplateTypeEnum.getTemplateNameByArea(area);

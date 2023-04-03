@@ -49,7 +49,9 @@ public class NewFarmerDataApiController {
     public void btData(@RequestBody TNewfarmerBt tNewfarmerBt){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerBt,newfarmerMain);
+        newfarmerMain.setDetailTabName("t_newfarmer_bt");
         mainService.save(newfarmerMain);
+        tNewfarmerBt.setFarmerType("newFarmer");
         tNewfarmerBt.setFarmerId(newfarmerMain.getFarmerId());
         btService.insertTNewfarmerBt(tNewfarmerBt);
     }
@@ -70,7 +72,9 @@ public class NewFarmerDataApiController {
     public void daData(@RequestBody TNewfarmerDa tNewfarmerDa){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerDa,newfarmerMain);
+        newfarmerMain.setDetailTabName("t_newfarmer_da");
         mainService.save(newfarmerMain);
+        tNewfarmerDa.setFarmerType("newFarmer");
         tNewfarmerDa.setFarmerId(newfarmerMain.getFarmerId());
         daService.insertTNewfarmerDa(tNewfarmerDa);
     }
@@ -92,7 +96,9 @@ public class NewFarmerDataApiController {
     public void hkData(@RequestBody TNewfarmerHk tNewfarmerHk){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerHk,newfarmerMain);
+        newfarmerMain.setDetailTabName("t_newfarmer_hk");
         mainService.save(newfarmerMain);
+        tNewfarmerHk.setFarmerType("newFarmer");
         tNewfarmerHk.setFarmerId(newfarmerMain.getFarmerId());
         hkService.insertTNewfarmerHk(tNewfarmerHk);
     }
@@ -114,7 +120,9 @@ public class NewFarmerDataApiController {
     public void data(@RequestBody TNewfarmerSy tNewfarmerSy){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerSy,newfarmerMain);
+        newfarmerMain.setDetailTabName("t_newfarmer_sy");
         mainService.save(newfarmerMain);
+        tNewfarmerSy.setFarmerType("newFarmer");
         tNewfarmerSy.setFarmerId(newfarmerMain.getFarmerId());
         syService.insertTNewfarmerSy(tNewfarmerSy);
     }
@@ -136,7 +144,9 @@ public class NewFarmerDataApiController {
     public void qzData(@RequestBody TNewfarmerQz tNewfarmerQz){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerQz,newfarmerMain);
+        newfarmerMain.setDetailTabName("t_newfarmer_qz");
         mainService.save(newfarmerMain);
+        tNewfarmerQz.setFarmerType("newFarmer");
         tNewfarmerQz.setFarmerId(newfarmerMain.getFarmerId());
         qzService.insertTNewfarmerQz(tNewfarmerQz);
     }
@@ -158,7 +168,9 @@ public class NewFarmerDataApiController {
     public void wcData(@RequestBody TNewfarmerWc tNewfarmerWc){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerWc,newfarmerMain);
+        newfarmerMain.setDetailTabName("t_newfarmer_wc");
         mainService.save(newfarmerMain);
+        tNewfarmerWc.setFarmerType("newFarmer");
         tNewfarmerWc.setFarmerId(newfarmerMain.getFarmerId());
         wcService.insertTNewfarmerWc(tNewfarmerWc);
     }
@@ -180,7 +192,9 @@ public class NewFarmerDataApiController {
     public void wzsData(@RequestBody TNewfarmerWzs tNewfarmerWzs){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerWzs,newfarmerMain);
+        newfarmerMain.setDetailTabName("t_newfarmer_wzs");
         mainService.save(newfarmerMain);
+        tNewfarmerWzs.setFarmerType("newFarmer");
         tNewfarmerWzs.setFarmerId(newfarmerMain.getFarmerId());
         wzsService.insertTNewfarmerWzs(tNewfarmerWzs);
     }

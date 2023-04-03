@@ -51,17 +51,14 @@ public class DctApiController {
         String area = statisticsVo.getArea();
         String trueArea = area.substring(0, 3);
         Integer countNum = null;
-        // todo 待确定用户类型值
         if (queryUserType.equals("1")){
             QueryWrapper<TFarmerMain> queryWrapper = new QueryWrapper<>();
-            // todo 确定长度
             queryWrapper.likeRight("area",trueArea);
             // 未采集 1   已采集 2
             queryWrapper.eq("collect_status","2");
             countNum = farmerMainService.count(queryWrapper);
         }else {
             QueryWrapper<TNewfarmerMain> queryWrapper = new QueryWrapper<>();
-            // todo 确定长度
             queryWrapper.likeRight("area",trueArea);
             // 未采集 1   已采集 2
             queryWrapper.eq("collect_status","2");
@@ -76,13 +73,13 @@ public class DctApiController {
         PageHelper.startPage(listDataReqVo.getPagenum(), listDataReqVo.getPagesize());
         String queryUserType = listDataReqVo.getQueryUserType();
         String searchValue = listDataReqVo.getSearchValue();
-        // todo 待确定用户类型值
+
         if(queryUserType.equals("1")){
             QueryWrapper<TFarmerMain> queryWrapper = new QueryWrapper<>();
             if (StringUtils.isNoneBlank(searchValue)){
                 queryWrapper.like("person_name",searchValue);
             }
-            queryWrapper.eq("area",listDataReqVo.getArea());
+            queryWrapper.likeRight("area",listDataReqVo.getArea());
             // 根据采集员的采集地区范围去查询所有的被采集人员基础列表信息
             List<TFarmerMain> list = farmerMainService.list(queryWrapper);
             PageInfo<TFarmerMain> pageInfo = new PageInfo<>(list);
@@ -92,7 +89,7 @@ public class DctApiController {
             if (StringUtils.isNoneBlank(searchValue)){
                 queryWrapper.like("person_name",searchValue);
             }
-            queryWrapper.eq("area",listDataReqVo.getArea());
+            queryWrapper.likeRight("area",listDataReqVo.getArea());
             // 根据采集员的采集地区范围去查询所有的被采集人员基础列表信息
             List<TNewfarmerMain> list = newfarmerMainService.list(queryWrapper);
             PageInfo<TNewfarmerMain> pageInfo = new PageInfo<>(list);
@@ -111,7 +108,6 @@ public class DctApiController {
         String queryUserType = baseDataVo.getQueryUserType();
         String area = baseDataVo.getArea();
 
-        // todo 待确定用户类型值
         if (queryUserType.equals("1")){
             String tableName = FarmerTemplateTypeEnum.getTemplateNameByArea(area);
             FarmerDo demoDo = new FarmerDo();

@@ -14,24 +14,24 @@ import java.util.Arrays;
 @ToString
 public enum FarmerTemplateTypeEnum {
 
-    HK_FARMER_TEMPLATE(1,"t_farmer_hk","3000001"),
-    ZZ_FARMER_TEMPLATE(2,"t_farmer_hk","3000002"),
-    BS_FARMER_TEMPLATE(3,"t_farmer_hk","3000003"),
-    WN_FARMER_TEMPLATE(4,"t_farmer_hk","3000004"),
-    LS_FARMER_TEMPLATE(5,"t_farmer_hk","3000005"),
-    CJ_FARMER_TEMPLATE(6,"t_farmer_hk","3000006"),
-    LG_FARMER_TEMPLATE(7,"t_farmer_hk","3000007"),
-    DF_FARMER_TEMPLATE(8,"t_farmer_hk","3000008"),
-    QH_FARMER_TEMPLATE(9,"t_farmer_hk","3000009"),
-    DA_FARMER_TEMPLATE(10,"t_farmer_da","3000010"),
-    DM_FARMER_TEMPLATE(11,"t_farmer_da","3000011"),
-    BT_FARMER_TEMPLATE(12,"t_farmer_bt","3000012"),
-    QZ_FARMER_TEMPLATE(13,"t_farmer_qz","3000013"),
-    SY_FARMER_TEMPLATE(14,"t_farmer_sy","3000014"),
-    WC_FARMER_TEMPLATE(15,"t_farmer_wc","3000000"),
-    WZS_FARMER_TEMPLATE(16,"t_farmer_wzs","3000000"),
-    LD_FARMER_TEMPLATE(17,"t_farmer_wzs","3000000"),
-    TC_FARMER_TEMPLATE(18,"t_farmer_wzs","3000000");
+    HK_FARMER_TEMPLATE(1,"t_farmer_hk","4601"),
+    DZ_FARMER_TEMPLATE(2,"t_farmer_hk","4604"),
+    BS_FARMER_TEMPLATE(3,"t_farmer_hk","469025"),
+    WN_FARMER_TEMPLATE(4,"t_farmer_hk","469006"),
+    LS_FARMER_TEMPLATE(5,"t_farmer_hk","469028"),
+    CJ_FARMER_TEMPLATE(6,"t_farmer_hk","469026"),
+    LG_FARMER_TEMPLATE(7,"t_farmer_hk","469024"),
+    DF_FARMER_TEMPLATE(8,"t_farmer_hk","469007"),
+    QH_FARMER_TEMPLATE(9,"t_farmer_hk","469002"),
+    DA_FARMER_TEMPLATE(10,"t_farmer_da","469021"),
+    DM_FARMER_TEMPLATE(11,"t_farmer_da","469023"),
+    BT_FARMER_TEMPLATE(12,"t_farmer_bt","469029"),
+    QZ_FARMER_TEMPLATE(13,"t_farmer_qz","46903"),
+    SY_FARMER_TEMPLATE(14,"t_farmer_sy","4602"),
+    WC_FARMER_TEMPLATE(15,"t_farmer_wc","469005"),
+    WZS_FARMER_TEMPLATE(16,"t_farmer_wzs","469001"),
+    LD_FARMER_TEMPLATE(17,"t_farmer_wzs","469027"),
+    TC_FARMER_TEMPLATE(18,"t_farmer_wzs","469022");
 
     private Integer code;
     private String templateName;

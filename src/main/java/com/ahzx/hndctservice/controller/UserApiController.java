@@ -3,7 +3,7 @@ package com.ahzx.hndctservice.controller;
 import com.ahzx.hndctservice.common.result.R;
 import com.ahzx.hndctservice.common.utils.CpachaUtil;
 import com.ahzx.hndctservice.common.utils.JwtUtils;
-import com.ahzx.hndctservice.entity.User;
+import com.ahzx.hndctservice.entity.BizCollector;
 import com.ahzx.hndctservice.entity.Vo.UserLoginVo;
 import com.ahzx.hndctservice.mapper.UserLoginMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -86,15 +86,16 @@ public class UserApiController {
         String password = loginVo.getPassword();
 
         // 验证账号密码是否正确
-        User userLogin = new User();
+        BizCollector userLogin = new BizCollector();
         userLogin.setUsername(username);
+        // todo 拿到若以的登录代码 加盐加密
         userLogin.setPassword(password);
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<BizCollector> queryWrapper = new QueryWrapper<>();
         queryWrapper
                 .eq("username", username)
                 .eq("password", password);
 
-        List<User> list = userLoginMapper.selectList(queryWrapper);
+        List<BizCollector> list = userLoginMapper.selectList(queryWrapper);
         if(CollectionUtils.isNotEmpty(list)) {
             // 登录成功,加上 token
             String token = JwtUtils.createToken(list.get(0).getUsername());

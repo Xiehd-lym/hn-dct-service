@@ -14,24 +14,24 @@ import java.util.Arrays;
 @ToString
 public enum NewFarmerTemplateTypeEnum {
 
-    HK_NEWFARMER_TEMPLATE(1,"t_newfarmer_hk","300000001"),
-    DZ_NEWFARMER_TEMPLATE(2,"t_newfarmer_hk","300000002"),
-    BS_NEWFARMER_TEMPLATE(3,"t_newfarmer_hk","300000003"),
-    WN_NEWFARMER_TEMPLATE(4,"t_newfarmer_hk","300000004"),
-    LS_NEWFARMER_TEMPLATE(5,"t_newfarmer_hk","300000005"),
-    CJ_NEWFARMER_TEMPLATE(6,"t_newfarmer_hk","300000006"),
-    LG_NEWFARMER_TEMPLATE(7,"t_newfarmer_hk","300000007"),
-    DF_NEWFARMER_TEMPLATE(8,"t_newfarmer_hk","300000008"),
-    QH_NEWFARMER_TEMPLATE(9,"t_newfarmer_hk","300000009"),
-    BT_NEWFARMER_TEMPLATE(10,"t_newfarmer_bt","300000010"),
-    TC_NEWFARMER_TEMPLATE(11,"t_newfarmer_bt","300000011"),
-    DA_NEWFARMER_TEMPLATE(12,"t_newfarmer_da","300000012"),
-    DM_NEWFARMER_TEMPLATE(13,"t_newfarmer_da","300000013"),
-    LD_NEWFARMER_TEMPLATE(14,"t_newfarmer_ld","300000014"),
-    QZ_NEWFARMER_TEMPLATE(15,"t_newfarmer_qz","300000015"),
-    SY_NEWFARMER_TEMPLATE(16,"t_newfarmer_sy","300000016"),
-    WC_NEWFARMER_TEMPLATE(17,"t_newfarmer_wc","300000017"),
-    WZS_NEWFARMER_TEMPLATE(18,"t_newfarmer_wzs","300000018");
+    HK_NEWFARMER_TEMPLATE(1,"t_newfarmer_hk","4601"),
+    DZ_NEWFARMER_TEMPLATE(2,"t_newfarmer_hk","4604"),
+    BS_NEWFARMER_TEMPLATE(3,"t_newfarmer_hk","469025"),
+    WN_NEWFARMER_TEMPLATE(4,"t_newfarmer_hk","469006"),
+    LS_NEWFARMER_TEMPLATE(5,"t_newfarmer_hk","469028"),
+    CJ_NEWFARMER_TEMPLATE(6,"t_newfarmer_hk","469026"),
+    LG_NEWFARMER_TEMPLATE(7,"t_newfarmer_hk","469024"),
+    DF_NEWFARMER_TEMPLATE(8,"t_newfarmer_hk","469007"),
+    QH_NEWFARMER_TEMPLATE(9,"t_newfarmer_hk","469002"),
+    BT_NEWFARMER_TEMPLATE(10,"t_newfarmer_bt","469029"),
+    TC_NEWFARMER_TEMPLATE(11,"t_newfarmer_bt","469022"),
+    DA_NEWFARMER_TEMPLATE(12,"t_newfarmer_da","469021"),
+    DM_NEWFARMER_TEMPLATE(13,"t_newfarmer_da","469023"),
+    LD_NEWFARMER_TEMPLATE(14,"t_newfarmer_ld","469027"),
+    QZ_NEWFARMER_TEMPLATE(15,"t_newfarmer_qz","46903"),
+    SY_NEWFARMER_TEMPLATE(16,"t_newfarmer_sy","4602"),
+    WC_NEWFARMER_TEMPLATE(17,"t_newfarmer_wc","469005"),
+    WZS_NEWFARMER_TEMPLATE(18,"t_newfarmer_wzs","469001");
 
     private Integer code;
     private String templateName;
@@ -41,11 +41,6 @@ public enum NewFarmerTemplateTypeEnum {
         this.code = code;
         this.templateName = templateName;
         this.area = area;
-    }
-
-    public static void main(String[] args) {
-        String templateNameByArea = getTemplateNameByArea("3000001");
-        System.out.println(templateNameByArea);
     }
 
     public static String getTemplateNameByArea(String area){
