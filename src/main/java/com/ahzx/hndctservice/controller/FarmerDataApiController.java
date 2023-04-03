@@ -1,18 +1,22 @@
 package com.ahzx.hndctservice.controller;
 
-
 import com.ahzx.hndctservice.entity.Dto.TFarmer.*;
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TFarmerMain;
 import com.ahzx.hndctservice.generator.farmer.service.*;
 import com.ahzx.hndctservice.service.ITFarmerMainService;
+import com.google.common.collect.Lists;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * 农户数据操作相关接口 *
@@ -43,6 +47,23 @@ public class FarmerDataApiController {
     private ITFarmerWzsService wzsService;
 
     /**                                 **/
+
+    public static void main(String[] args) {
+         test();
+    }
+
+    public static void test(){
+        List<String> list = Lists.newArrayList();
+        list.add("建议");
+        list.add("建筑");
+        list.add("健康");
+        list.add("建立");
+        String str = StringUtils.join(list, "|");
+        System.out.println(str);
+
+        List<String> testList = Stream.of(str.split(",")).collect(Collectors.toList()); ;
+        System.out.println(testList);
+    }
 
     @PostMapping("/btData")
     @Transactional

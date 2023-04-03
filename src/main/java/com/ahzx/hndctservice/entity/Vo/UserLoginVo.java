@@ -2,6 +2,7 @@ package com.ahzx.hndctservice.entity.Vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
@@ -17,6 +18,8 @@ import java.io.Serializable;
 public class UserLoginVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    private String cpachaType;
 
     @ApiModelProperty(value = "用户名")
     @NotEmpty(message = "用户姓名不能为空")

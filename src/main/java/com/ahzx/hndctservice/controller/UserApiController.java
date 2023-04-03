@@ -1,6 +1,7 @@
 package com.ahzx.hndctservice.controller;
 
 import com.ahzx.hndctservice.common.result.R;
+import com.ahzx.hndctservice.common.utils.CpachaUtil;
 import com.ahzx.hndctservice.common.utils.JwtUtils;
 import com.ahzx.hndctservice.entity.User;
 import com.ahzx.hndctservice.entity.Vo.UserLoginVo;
@@ -12,11 +13,14 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,8 +39,34 @@ public class UserApiController {
     @Autowired
     private UserLoginMapper userLoginMapper;
 
-    // todo 验证码操作
     // todo 返回首页需要显示的市区
+    @GetMapping("/getCpacha")
+    public R getCpacha(
+            @RequestParam(name = "len",required = false,defaultValue = "4") Integer codeLen,
+            @RequestParam(name = "width",required = false,defaultValue = "100") Integer width,
+            @RequestParam(name = "height",required = false,defaultValue = "30") Integer height,
+            @RequestParam(name = "type",defaultValue = "loginCpacha") String cpachaType,
+            HttpServletRequest request, HttpServletResponse response) {
+        // 获取工具类对象
+        CpachaUtil caCpachaUtil = new CpachaUtil(codeLen, width, height);
+        // 生成验证码字符串
+        String code = caCpachaUtil.generatorVCode();
+        // 获取Session对
+        HttpSession httpSession = request.getSession();
+        // 存进session域中
+        httpSession.setAttribute(cpachaType, code);
+        // 获得旋转字体的验证码图片
+        BufferedImage bufferedImage = caCpachaUtil.generatorRotateVCodeImage(code, true);
+        try {
+            // 以图片流的形式写到响应对象中
+            ImageIO.write(bufferedImage, "gif", response.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("code---"+code);
+        return R.ok().message("验证码生成成功").data("Cpacha",code);
+    }
+
     /**
      * 用户登录
      * @param loginVo
@@ -44,7 +74,13 @@ public class UserApiController {
      */
     @ApiOperation(value = "用户登录")
     @PostMapping(value = "/login")
-    public R userLogin(@ApiParam(value = "登录表单", required = true) @RequestBody UserLoginVo loginVo){
+    public R userLogin(
+            @RequestParam(name = "type",defaultValue = "loginCpacha") String cpachaType,
+            HttpServletRequest request,
+            @ApiParam(value = "登录表单", required = true) @RequestBody UserLoginVo loginVo){
+        // 获取Session对
+        HttpSession httpSession = request.getSession();
+        String code =(String)httpSession.getAttribute(cpachaType);
 
         String username = loginVo.getUsername();
         String password = loginVo.getPassword();
