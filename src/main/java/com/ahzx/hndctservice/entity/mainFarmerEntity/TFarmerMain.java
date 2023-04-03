@@ -24,6 +24,7 @@ public class TFarmerMain extends BaseEntity
     /** 主键id */
 //    @TableId
 //    @TableId(type = IdType.ASSIGN_UUID)
+    @TableId(type = IdType.AUTO)
     private Long farmerId;
 
     /** 户主姓名 */
