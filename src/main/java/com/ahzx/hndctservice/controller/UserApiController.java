@@ -43,7 +43,6 @@ public class UserApiController {
     @Autowired
     private UserLoginMapper userLoginMapper;
 
-    // todo 返回首页需要显示的市区
     @GetMapping("/getCpacha")
     @ResponseBody
     public R getCpacha(
@@ -114,6 +113,7 @@ public class UserApiController {
             Map<String, Object> data = new HashMap<>();
             data.put("token", token);
             data.put("user",list.get(0));
+            data.put("areaName",userLoginMapper.getAreaNameByCity(list.get(0).getCity()));
             data.put("loginResult", true);
             return R.ok().code(200).data("data", data).message("登录成功");
         }else {
