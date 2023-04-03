@@ -45,6 +45,16 @@ public class UserApiController {
     @Autowired
     private UserLoginMapper userLoginMapper;
 
+    /**
+     * 验证码 *
+     * @param codeLen
+     * @param width
+     * @param height
+     * @param cpachaType
+     * @param request
+     * @param response
+     * @return
+     */
     @GetMapping("/getCpacha")
     @ResponseBody
     public R getCpacha(

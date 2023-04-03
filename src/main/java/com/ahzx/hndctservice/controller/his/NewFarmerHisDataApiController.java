@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @Api(tags = "新型农业主体历史数据操作相关接口")
 @RestController
-@RequestMapping("/api/newFarmerDataHis")
+@RequestMapping("/api/user/newFarmerDataHis")
 @Slf4j
 public class NewFarmerHisDataApiController {
 
