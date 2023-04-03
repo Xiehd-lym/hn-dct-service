@@ -1,6 +1,8 @@
 package com.ahzx.hndctservice.entity.Dto.TNewFarmer;
 
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TNewfarmerMain;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 /**
@@ -15,8 +17,8 @@ public class TNewfarmerSy extends TNewfarmerMain {
     /** 主键 */
     private Long id;
 
-    /** 新型农业主体id */
-    private Long farmerId;
+    /** 主键id */
+    private String farmerId;
 
     /** 区域 */
     private String area;

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.NoSuchElementException;
+
 /**
  * 全局异常处理器 *
  * @Author xiehd
@@ -51,6 +53,13 @@ public class GlobalExceptionHandler {
     public R error(JWTDecodeException e){
         e.printStackTrace();
         return R.setResult(ResultCodeEnum.JWT_ERROR);
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    @ResponseBody
+    public R error(NoSuchElementException e){
+        e.printStackTrace();
+        return R.setResult(ResultCodeEnum.TEMPLATE_ERROR);
     }
 
 }

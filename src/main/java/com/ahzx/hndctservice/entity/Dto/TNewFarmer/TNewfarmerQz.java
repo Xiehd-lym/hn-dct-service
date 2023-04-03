@@ -16,7 +16,7 @@ public class TNewfarmerQz extends TNewfarmerMain {
     private Long id;
 
     /** 新型农业主体id */
-    private Long farmerId;
+    private String farmerId;
 
     /** 区域 */
     private String area;
