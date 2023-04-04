@@ -50,7 +50,7 @@ public class DctApiController {
         String queryUserType = statisticsVo.getQueryUserType();
         String area = statisticsVo.getArea();
         String trueArea = area.substring(0, 3);
-        Integer countNum = null;
+        Long countNum = null;
         if (queryUserType.equals("1")){
             QueryWrapper<TFarmerMain> queryWrapper = new QueryWrapper<>();
             queryWrapper.likeRight("area",trueArea);

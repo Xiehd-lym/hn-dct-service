@@ -5,19 +5,15 @@ import com.ahzx.hndctservice.entity.Dto.TFarmer.*;
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TFarmerMain;
 import com.ahzx.hndctservice.generator.farmer.service.*;
 import com.ahzx.hndctservice.service.ITFarmerMainService;
-import com.google.common.collect.Lists;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 农户数据操作相关接口 *
