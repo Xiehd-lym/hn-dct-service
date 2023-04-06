@@ -32,14 +32,14 @@ public class UserLoginInterceptor implements HandlerInterceptor {
         // 从 request 的 header 中获得 token 值
         String token = request.getHeader("Authorization");
         log.info("-------token-------:{}",token);
-        if (StringUtils.isBlank(token)) {
-            throw new UserLoginException();
-        }
+//        if (StringUtils.isBlank(token)) {
+//            throw new UserLoginException();
+//        }
         // 验证 token, JwtUtil 是自己定义的类，里面有个方法验证 token
         String sub = JwtUtils.validateToken(token);
-        if (StringUtils.isBlank(sub)) {
-            throw new JWTDecodeException();
-        }
+//        if (StringUtils.isBlank(sub)) {
+//            throw new JWTDecodeException();
+//        }
         // 更新 token 有效时间
         if (JwtUtils.isNeedUpdate(token)) {
             // 过期就创建新的 token 给前端
