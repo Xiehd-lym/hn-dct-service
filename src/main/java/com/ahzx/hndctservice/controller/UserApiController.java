@@ -120,12 +120,4 @@ public class UserApiController {
         }
     }
 
-    // todo 采集员 我的接口
-    @GetMapping("/myCount")
-    @ResponseBody
-    public R myCount(){
-
-        return R.ok();
-    }
-
 }
