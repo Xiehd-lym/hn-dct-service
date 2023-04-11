@@ -2,6 +2,7 @@ package com.ahzx.hndctservice.service.impl;
 
 import com.ahzx.hndctservice.common.utils.DateUtils;
 import com.ahzx.hndctservice.entity.Do.FarmerDo;
+import com.ahzx.hndctservice.entity.Dto.TFarmer.TFarmerBt;
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TFarmerMain;
 import com.ahzx.hndctservice.mapper.TFarmerMainMapper;
 import com.ahzx.hndctservice.service.ITFarmerMainService;
@@ -54,7 +55,9 @@ public class TFarmerMainServiceImpl extends ServiceImpl<TFarmerMainMapper, TFarm
     public Object selectFullMsgByTableName(FarmerDo farmerDo) {
         String tableName = farmerDo.getTableName();
         if (tableName.equals("t_farmer_bt")){
-            return tFarmerMainMapper.selectFullMsgBT(farmerDo);
+            TFarmerBt tFarmerBt = tFarmerMainMapper.selectFullMsgBT(farmerDo);
+            tFarmerBt.setHonorInfos(tFarmerBt.getHonorInfo().split(","));
+            return tFarmerBt;
         }else
         if (tableName.equals("t_farmer_da")){
             return tFarmerMainMapper.selectFullMsgDA(farmerDo);

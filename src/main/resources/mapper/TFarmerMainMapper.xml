@@ -125,7 +125,6 @@
         <result property="delFlag"    column="del_flag"    />
 
         <result property="id"    column="id"    />
-        <result property="farmerId"    column="farmer_id"    />
         <result property="area"    column="area"    />
         <result property="farmerType"    column="farmer_type"    />
         <result property="income"    column="income"    />

@@ -1,6 +1,7 @@
 package com.ahzx.hndctservice.entity.Dto.TNewFarmer;
 
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TNewfarmerMain;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 /**
@@ -51,6 +52,8 @@ public class TNewfarmerBt extends TNewfarmerMain {
 
     /** 种养种类 * 选项1.农产品种养 2.农产品加工、贸易 3.农资生产、贸易（可多选） */
     private String plantType;
+    @TableField(exist = false)
+    private String[] plantTypes;
 
     /** 流动资产 * 单位：万元 */
     private String plantIncome;

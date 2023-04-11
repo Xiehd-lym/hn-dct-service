@@ -18,14 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class UserLoginInterceptor implements HandlerInterceptor {
 
-    /**
-     * 拦截器：验证用户是否登录 *
-     * @param request
-     * @param response
-     * @param handler
-     * @return
-     * @throws Exception
-     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("执行了拦截器的preHandle方法");

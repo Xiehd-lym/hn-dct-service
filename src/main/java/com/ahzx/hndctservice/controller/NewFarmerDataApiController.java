@@ -51,6 +51,8 @@ public class NewFarmerDataApiController {
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerBt,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_bt");
+        newfarmerMain.setEvaStatus("0");
+        newfarmerMain.setCollectStatus("2");
         mainService.save(newfarmerMain);
         tNewfarmerBt.setFarmerType("newFarmer");
         tNewfarmerBt.setFarmerId(newfarmerMain.getFarmerId());
@@ -76,6 +78,8 @@ public class NewFarmerDataApiController {
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerDa,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_da");
+        newfarmerMain.setEvaStatus("0");
+        newfarmerMain.setCollectStatus("2");
         mainService.save(newfarmerMain);
         tNewfarmerDa.setFarmerType("newFarmer");
         tNewfarmerDa.setFarmerId(newfarmerMain.getFarmerId());
@@ -102,6 +106,8 @@ public class NewFarmerDataApiController {
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerHk,newfarmerMain);
         newfarmerMain.setDetailTabName("t_newfarmer_hk");
+        newfarmerMain.setEvaStatus("0");
+        newfarmerMain.setCollectStatus("2");
         mainService.save(newfarmerMain);
         tNewfarmerHk.setFarmerType("newFarmer");
         tNewfarmerHk.setFarmerId(newfarmerMain.getFarmerId());
@@ -127,6 +133,8 @@ public class NewFarmerDataApiController {
     public R data(@RequestBody TNewfarmerSy tNewfarmerSy){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerSy,newfarmerMain);
+        newfarmerMain.setEvaStatus("0");
+        newfarmerMain.setCollectStatus("2");
         newfarmerMain.setDetailTabName("t_newfarmer_sy");
         mainService.save(newfarmerMain);
         tNewfarmerSy.setFarmerType("newFarmer");
@@ -153,6 +161,8 @@ public class NewFarmerDataApiController {
     public R qzData(@RequestBody TNewfarmerQz tNewfarmerQz){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerQz,newfarmerMain);
+        newfarmerMain.setEvaStatus("0");
+        newfarmerMain.setCollectStatus("2");
         newfarmerMain.setDetailTabName("t_newfarmer_qz");
         mainService.save(newfarmerMain);
         tNewfarmerQz.setFarmerType("newFarmer");
@@ -179,6 +189,8 @@ public class NewFarmerDataApiController {
     public R wcData(@RequestBody TNewfarmerWc tNewfarmerWc){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerWc,newfarmerMain);
+        newfarmerMain.setEvaStatus("0");
+        newfarmerMain.setCollectStatus("2");
         newfarmerMain.setDetailTabName("t_newfarmer_wc");
         mainService.save(newfarmerMain);
         tNewfarmerWc.setFarmerType("newFarmer");
@@ -205,6 +217,8 @@ public class NewFarmerDataApiController {
     public R wzsData(@RequestBody TNewfarmerWzs tNewfarmerWzs){
         TNewfarmerMain newfarmerMain = new TNewfarmerMain();
         BeanUtils.copyProperties(tNewfarmerWzs,newfarmerMain);
+        newfarmerMain.setEvaStatus("0");
+        newfarmerMain.setCollectStatus("2");
         newfarmerMain.setDetailTabName("t_newfarmer_wzs");
         mainService.save(newfarmerMain);
         tNewfarmerWzs.setFarmerType("newFarmer");

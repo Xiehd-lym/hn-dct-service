@@ -26,7 +26,6 @@ import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +71,7 @@ public class UserApiController {
             String base64String = Base64Utils.encodeToString(img);
 
             result.put("imgBase64",base64String);
-            result.put("Cpacha",code);
+            result.put("cpacha",code);
             log.info("登录时间是：{}，的验证码为：{}", DateUtils.getNowDate(),code);
         } catch (IOException e) {
             e.printStackTrace();
@@ -87,13 +86,7 @@ public class UserApiController {
      */
     @ApiOperation(value = "用户登录")
     @PostMapping(value = "/login")
-    public R userLogin(
-            @RequestParam(name = "type",defaultValue = "loginCpacha") String cpachaType,
-            HttpServletRequest request,
-            @ApiParam(value = "登录表单", required = true) @RequestBody UserLoginVo loginVo){
-        // 获取Session对
-//        HttpSession httpSession = request.getSession();
-//        String code =(String)httpSession.getAttribute(cpachaType);
+    public R userLogin(@ApiParam(value = "登录表单", required = true) @RequestBody UserLoginVo loginVo){
 
         String loginName = loginVo.getLoginName();
         String password = loginVo.getPassword();
@@ -116,6 +109,7 @@ public class UserApiController {
             data.put("token", token);
             BizCollectorVo bizCollectorVo = new BizCollectorVo();
             BeanUtils.copyProperties(list.get(0),bizCollectorVo);
+            bizCollectorVo.setDctFlag(1);
             bizCollectorVo.setAreaName(userLoginMapper.getAreaNameByCity(list.get(0).getCity()));
             data.put("user",bizCollectorVo);
 //            data.put("areaName",userLoginMapper.getAreaNameByCity(list.get(0).getCity()));

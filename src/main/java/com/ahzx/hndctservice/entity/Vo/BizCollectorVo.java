@@ -13,4 +13,6 @@ public class BizCollectorVo extends BizCollector {
 
     private String areaName;
 
+    private int dctFlag;
+
 }

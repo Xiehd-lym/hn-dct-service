@@ -2,6 +2,7 @@ package com.ahzx.hndctservice.service.impl;
 
 import com.ahzx.hndctservice.common.utils.DateUtils;
 import com.ahzx.hndctservice.entity.Do.FarmerDo;
+import com.ahzx.hndctservice.entity.Dto.TNewFarmer.TNewfarmerBt;
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TNewfarmerMain;
 import com.ahzx.hndctservice.mapper.TNewfarmerMainMapper;
 import com.ahzx.hndctservice.service.ITNewfarmerMainService;
@@ -60,7 +61,9 @@ public class TNewfarmerMainServiceImpl extends ServiceImpl<TNewfarmerMainMapper,
             return tNewfarmerMainMapper.selectFullMsgHK(farmerDo);
         }else
         if (tableName.equals("t_newfarmer_bt")){
-            return tNewfarmerMainMapper.selectFullMsgBT(farmerDo);
+            TNewfarmerBt tNewfarmerBt = tNewfarmerMainMapper.selectFullMsgBT(farmerDo);
+            tNewfarmerBt.setPlantTypes(tNewfarmerBt.getPlantType().split(","));
+            return tNewfarmerBt;
         }else
         if (tableName.equals("t_newfarmer_da")){
             return tNewfarmerMainMapper.selectFullMsgDA(farmerDo);

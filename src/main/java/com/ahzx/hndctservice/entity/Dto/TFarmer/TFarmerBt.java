@@ -2,6 +2,7 @@ package com.ahzx.hndctservice.entity.Dto.TFarmer;
 
 import com.ahzx.hndctservice.entity.mainFarmerEntity.TFarmerMain;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -60,6 +61,8 @@ public class TFarmerBt extends TFarmerMain {
 
     /** 荣誉信息 */
     private String honorInfo;
+    @TableField(exist = false)
+    private String[] honorInfos;
 
     /** 爱党爱国 */
     private String adag;

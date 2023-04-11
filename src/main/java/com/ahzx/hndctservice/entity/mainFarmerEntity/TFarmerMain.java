@@ -34,14 +34,14 @@ public class TFarmerMain extends BaseEntity
     private String homeNo;
 
     /** 身份证号 */
-    @PrivacyEncrypt(type = PrivacyTypeEnum.ID_CARD)
+//    @PrivacyEncrypt(type = PrivacyTypeEnum.ID_CARD)
     private String cardNo;
 
     /** 年龄 */
-    private Long age;
+    private String age;
 
     /** 联系电话 */
-    @PrivacyEncrypt(type = PrivacyTypeEnum.PHONE)
+//    @PrivacyEncrypt(type = PrivacyTypeEnum.PHONE)
     private String phone;
 
     /** 学历 */
@@ -51,10 +51,10 @@ public class TFarmerMain extends BaseEntity
     private String maritalStatus;
 
     /** 劳动力数 */
-    private Long workCount;
+    private String workCount;
 
     /** 家庭人口数 */
-    private Long personCount;
+    private String personCount;
 
     /** 区域 */
     private String area;

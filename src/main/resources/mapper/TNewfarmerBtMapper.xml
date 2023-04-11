@@ -126,7 +126,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateTNewfarmerBt" parameterType="TNewfarmerBt">
         update t_newfarmer_bt
         <trim prefix="SET" suffixOverrides=",">
-            <if test="farmerId != null">farmer_id = #{farmerId},</if>
             <if test="area != null">area = #{area},</if>
             <if test="farmerType != null">farmer_type = #{farmerType},</if>
             <if test="income != null">income = #{income},</if>
@@ -150,7 +149,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="creditStatus != null">credit_status = #{creditStatus},</if>
             <if test="villagesGov != null">villages_gov = #{villagesGov},</if>
         </trim>
-        where id = #{id}
+        where farmer_id = #{farmerId}
     </update>
 
     <delete id="deleteTNewfarmerBtById" parameterType="Long">

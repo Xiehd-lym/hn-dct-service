@@ -51,6 +51,8 @@ public class FarmerDataApiController {
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerBt,tFarmerMain);
         tFarmerMain.setFarmerTabName("t_farmer_bt");
+        tFarmerMain.setEvaStatus("0");
+        tFarmerMain.setCollectStatus("2");
         mainService.save(tFarmerMain);
         farmerBt.setFarmerType("farmer");
         farmerBt.setFarmerId(tFarmerMain.getFarmerId());
@@ -76,6 +78,8 @@ public class FarmerDataApiController {
     public R daData(@RequestBody TFarmerDa farmerDa){
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerDa,tFarmerMain);
+        tFarmerMain.setEvaStatus("0");
+        tFarmerMain.setCollectStatus("2");
         tFarmerMain.setFarmerTabName("t_farmer_da");
         mainService.save(tFarmerMain);
         farmerDa.setFarmerType("farmer");
@@ -101,6 +105,8 @@ public class FarmerDataApiController {
     public R hkData(@RequestBody TFarmerHk farmerHk){
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerHk,tFarmerMain);
+        tFarmerMain.setEvaStatus("0");
+        tFarmerMain.setCollectStatus("2");
         farmerHk.setFarmerTabName("t_farmer_hk");
         mainService.save(tFarmerMain);
         farmerHk.setFarmerType("farmer");
@@ -127,6 +133,8 @@ public class FarmerDataApiController {
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerQz,tFarmerMain);
         tFarmerMain.setFarmerTabName("t_farmer_qz");
+        tFarmerMain.setEvaStatus("0");
+        tFarmerMain.setCollectStatus("2");
         mainService.save(tFarmerMain);
         farmerQz.setFarmerType("farmer");
         farmerQz.setFarmerId(tFarmerMain.getFarmerId());
@@ -138,6 +146,8 @@ public class FarmerDataApiController {
     public R qzDataUpdate(@RequestBody TFarmerQz farmerQz){
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerQz,tFarmerMain);
+        tFarmerMain.setEvaStatus("0");
+        tFarmerMain.setCollectStatus("2");
         mainService.updateById(tFarmerMain);
         farmerQz.setFarmerId(tFarmerMain.getFarmerId());
         qzService.updateTFarmerQz(farmerQz);
@@ -152,6 +162,8 @@ public class FarmerDataApiController {
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerSy,tFarmerMain);
         tFarmerMain.setFarmerTabName("t_farmer_sy");
+        tFarmerMain.setEvaStatus("0");
+        tFarmerMain.setCollectStatus("2");
         mainService.save(tFarmerMain);
         farmerSy.setFarmerType("farmer");
         farmerSy.setFarmerId(tFarmerMain.getFarmerId());
@@ -176,6 +188,8 @@ public class FarmerDataApiController {
     public R wcData(@RequestBody TFarmerWc farmerWc){
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerWc,tFarmerMain);
+        tFarmerMain.setEvaStatus("0");
+        tFarmerMain.setCollectStatus("2");
         tFarmerMain.setFarmerTabName("t_farmer_wc");
         mainService.save(tFarmerMain);
         farmerWc.setFarmerType("farmer");
@@ -201,6 +215,8 @@ public class FarmerDataApiController {
     public R wzsData(@RequestBody TFarmerWzs farmerWzs){
         TFarmerMain tFarmerMain = new TFarmerMain();
         BeanUtils.copyProperties(farmerWzs,tFarmerMain);
+        tFarmerMain.setEvaStatus("0");
+        tFarmerMain.setCollectStatus("2");
         tFarmerMain.setFarmerTabName("t_farmer_wzs");
         mainService.save(tFarmerMain);
         farmerWzs.setFarmerType("farmer");
