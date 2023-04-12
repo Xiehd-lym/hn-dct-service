@@ -1,0 +1,22 @@
+server:
+  port: 18080
+  servlet:
+    context-path: /hn-dct-service-dev/
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ry?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&userSSL=false
+    username: root
+    password: root
+  redis:
+    host: 192.168.1.168
+    port: 6379
+    database: 0
+    #password: 123456 #默认为空
+    lettuce:
+      pool:
+        max-active: 20  #最大连接数，负值表示没有限制，默认8
+        max-wait: -1    #最大阻塞等待时间，负值表示没限制，默认-1
+        max-idle: 8     #最大空闲连接，默认8
+        min-idle: 0     #最小空闲连接，默认0

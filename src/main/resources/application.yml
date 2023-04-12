@@ -1,37 +1,21 @@
+server:
+  port: 18080
+  servlet:
+    context-path: /hn-dct-service/
+
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ry?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&userSSL=false
-    username: root
-    password: root
+  profiles:
+    active: dev
   # json的全局配置
   jackson:
     time-zone: GMT+8
     date-format: java.text.SimpleDateFormat
   thymeleaf:
     check-template: false
-  redis:
-    host: 192.168.1.168
-    port: 6379
-    database: 0
-    #password: 123456 #默认为空
-    lettuce:
-      pool:
-        max-active: 20  #最大连接数，负值表示没有限制，默认8
-        max-wait: -1    #最大阻塞等待时间，负值表示没限制，默认-1
-        max-idle: 8     #最大空闲连接，默认8
-        min-idle: 0     #最小空闲连接，默认0
-
-server:
-  port: 18080
-  servlet:
-    context-path: /hn-dct-service/
-
-logging:
-  file:
-      name: D:/var/log/spring_log
-  level:
-    root: info
+  security:
+    user:
+      name: admin
+      password: 123456
 
 #mybatis:
 #  #定义xml文件位置，不是必须的，如果需要在xml写sql请配置此选项
@@ -66,3 +50,4 @@ jwt:
   tokenPrefix: "Bearer "      # token 前缀
   secret: "qwertyuiop1214156" # 私钥
   expireTime: 43200            # token 的有效时间，单位是分钟
+
